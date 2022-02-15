@@ -49,7 +49,7 @@ const Onboarding = () => {
               <Text fontSize="xl" fontWeight="bold">
                 Hola!
               </Text>
-              <Text color="gray.600">Arma tu pedido en simples pasos:</Text>
+              <Text color="gray.600">Arma tu pedido en 3 simples pasos:</Text>
             </Stack>
             <Stack marginTop={4} spacing={6}>
               <Stack isInline alignItems="baseline" spacing={3}>
