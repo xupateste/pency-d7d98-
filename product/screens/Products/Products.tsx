@@ -9,7 +9,7 @@ import ProductsCarousel from "../../components/ProductsCarousel";
 
 import Onboarding from "./Onboarding";
 
-import Logo from "~/ui/static/Logo";
+//import Logo from "~/ui/static/Logo";
 import {useCart} from "~/cart/hooks";
 import {groupBy} from "~/selectors/group";
 import CartSummaryDrawer from "~/cart/components/CartSummaryDrawer";
