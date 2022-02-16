@@ -190,8 +190,7 @@ const ProductsScreen: React.FC = () => {
         >
           <Link href="/">
             <Stack isInline alignItems="center" spacing={1}>
-              <Text fontSize="sm">{t("products.footer.createdWith")}</Text>
-              <Logo size={12} />
+              <Text fontSize="sm">{'© 2022 Ferreteria San Matías, Juliaca'}</Text>
             </Stack>
           </Link>
         </Flex>
