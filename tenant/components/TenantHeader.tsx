@@ -74,11 +74,7 @@ const TenantHeader: React.FC<Props> = ({
                 href={`https://goo.gl/maps/3yFCw5mQm574YDb66`}
               >
                 <Text fontSize={{base: "sm", sm: "md"}} lineHeight="tall">
-<<<<<<< HEAD
                   {'Av. Modesto Borda 743 - Juliaca 🇵🇪)'}
-=======
-                  {'Av. Modesto Borda 743 - Juliaca 🇵🇪'}
->>>>>>> 78f0ea350297f6e8a9c60e3d5326133d32864b1f
                 </Text>
               </Link>
             </Stack>
