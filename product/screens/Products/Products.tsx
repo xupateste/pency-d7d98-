@@ -45,8 +45,8 @@ const ProductsScreen: React.FC = () => {
   function handleAdd(product: Product, options: Variant[], count: number, note: string) {
     add(product, options, count, note);
 
-	push(`/`);
-    //push(`/`, {shallow: true});
+	 //push(`/`);
+    push(`/`, {shallow: true});
   }
 
   function handleOpenCart() {
@@ -54,8 +54,8 @@ const ProductsScreen: React.FC = () => {
   }
 
   function handleCloseSelected() {
-    push(`/`);
-	//push(`/`, {shallow: true});
+    //push(`/`);
+	 push(`/`, {shallow: true});
   }
 
   function handleSelect(product: Product) {
