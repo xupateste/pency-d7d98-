@@ -4,9 +4,12 @@ import {Grid, Stack, Text, StackProps} from "@chakra-ui/core";
 interface Props extends StackProps {
   title?: string;
   layout: "landscape" | "portrait";
+  products?: {
+    length?: number,
+  };
 }
 
-const ProductsGrid: React.FC<Props> = ({children, title, layout, ...props}) => (
+const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...props}) => (
   <Stack spacing={{base: 4, sm: 5}} {...props}>
     {title && (
       <Stack
@@ -25,7 +28,7 @@ const ProductsGrid: React.FC<Props> = ({children, title, layout, ...props}) => (
         >
           {title}
         </Text>
-        {/*<Text fontSize="xl" color="gray.500">({children.length})</Text>*/}
+        <Text fontSize="xl" color="gray.500">({products.length})</Text>
       </Stack>
     )} 
     {layout === "landscape" && (
