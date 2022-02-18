@@ -24,7 +24,8 @@ const ProductsGrid: React.FC<Props> = ({children, title, layout, ...props}) => (
           textTransform="capitalize"
         >
           {title}
-        </Text><Text fontSize="xl" isInline color="gray.500">({children.length})</Text>
+        </Text>
+        <Text fontSize="xl" color="gray.500">({children.length})</Text>
       </Stack>
     )} 
     {layout === "landscape" && (
