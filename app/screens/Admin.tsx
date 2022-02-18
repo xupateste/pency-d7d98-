@@ -17,7 +17,6 @@ import {
 import HomeAdminScreen from "./Home";
 
 import ProductsAdminScreen from "~/product/screens/Admin/Admin";
-import CsvAdminScreen from "~/product/screens/Products/Products";
 import TenantAdminScreen from "~/tenant/screens/Admin";
 import BoxIcon from "~/ui/icons/Box";
 import SlidersIcon from "~/ui/icons/Sliders";
