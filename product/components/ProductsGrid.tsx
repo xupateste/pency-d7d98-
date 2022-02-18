@@ -6,19 +6,27 @@ interface Props extends StackProps {
   layout: "landscape" | "portrait";
 }
 
-const ProductsGrid: React.FC<Props> = ({children, title, layout, ...props}) => (
+const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...props}) => (
   <Stack spacing={{base: 4, sm: 5}} {...props}>
     {title && (
-      <Text
-        as="h2"
-        data-test-id="title"
-        fontSize={{base: "lg", sm: "2xl"}}
-        fontWeight={500}
-        textTransform="capitalize"
-      >
-        {title}
-      </Text>
-    )}
+      <Stack
+          isInline
+          alignItems="center"
+          fontSize="lg"
+          fontWeight={500}
+          spacing={2}
+        >
+        <Text
+          as="h2"
+          data-test-id="title"
+          fontSize={{base: "xl", sm: "2xl"}}
+          fontWeight={500}
+          textTransform="capitalize"
+        >
+          {title}
+        </Text><Text isInline color="gray.500">({products.length})</Text>
+      </Stack>
+    )} 
     {layout === "landscape" && (
       <Grid
         autoRows="auto"
