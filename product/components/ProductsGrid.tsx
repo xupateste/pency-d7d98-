@@ -6,7 +6,7 @@ interface Props extends StackProps {
   layout: "landscape" | "portrait";
 }
 
-const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...props}) => (
+const ProductsGrid: React.FC<Props> = ({children, title, layout, ...props}) => (
   <Stack spacing={{base: 4, sm: 5}} {...props}>
     {title && (
       <Stack
@@ -24,7 +24,7 @@ const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...pr
           textTransform="capitalize"
         >
           {title}
-        </Text><Text isInline color="gray.500">({products.length})</Text>
+        </Text><Text fontSize="xl" isInline color="gray.500">({children.length})</Text>
       </Stack>
     )} 
     {layout === "landscape" && (
