@@ -2,6 +2,7 @@ import React from "react";
 import {IDrawer} from "@chakra-ui/core";
 
 import {CartItem} from "../../types";
+
 import {getCount} from "../../selectors";
 
 import Overview from "./Overview";
@@ -11,6 +12,8 @@ import Drawer from "~/ui/controls/Drawer";
 import {ClientTenant, Field} from "~/tenant/types";
 import {useAnalytics} from "~/analytics/hooks";
 
+import {Product} from "~/product/types";//added
+
 interface Props extends Omit<IDrawer, "children"> {
   onClose: VoidFunction;
   items: CartItem[];
@@ -18,6 +21,7 @@ interface Props extends Omit<IDrawer, "children"> {
   onCheckout: (fields?: Field[]) => Promise<void>;
   onDecrease: (id: CartItem["id"]) => void;
   onIncrease: (id: CartItem["id"]) => void;
+  products: Product[]; //added
 }
 
 const CartSummaryDrawer: React.FC<Props> = ({
@@ -27,6 +31,7 @@ const CartSummaryDrawer: React.FC<Props> = ({
   onDecrease,
   onCheckout,
   onClose,
+  products,
 }) => {
   const [step, setStep] = React.useState("overview");
   const count = getCount(items);
@@ -86,6 +91,7 @@ const CartSummaryDrawer: React.FC<Props> = ({
           onDecrease={onDecrease}
           onIncrease={onIncrease}
           onSubmit={hasNextStep ? handleNext : handleCheckoutWithoutFields}
+          products={products}
         />
       )}
       {step === "fields" && (

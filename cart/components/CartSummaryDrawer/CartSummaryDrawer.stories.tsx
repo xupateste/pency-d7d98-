@@ -6,9 +6,12 @@ import mock from "../../mock";
 import CartSummaryDrawer from "./CartSummaryDrawer";
 
 import tenantMock from "~/tenant/mock";
+// @ts-ignore
+import {Product} from "~/product/types";//added
 
 export const open = () => (
   <CartSummaryDrawer
+    products= { [] as Product[]  }
     fields={tenantMock.client.full.fields}
     items={[mock.item]}
     onCheckout={() => {
@@ -24,6 +27,7 @@ export const open = () => (
 
 export const manyItems = () => (
   <CartSummaryDrawer
+    products= { [] as Product[] }
     fields={tenantMock.client.full.fields}
     items={[
       ...[mock.item, mock.item],

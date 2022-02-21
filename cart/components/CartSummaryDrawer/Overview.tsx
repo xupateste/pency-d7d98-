@@ -13,7 +13,12 @@ import Stepper from "~/ui/inputs/Stepper";
 import {getVariantsString} from "~/product/selectors";
 import CrossIcon from "~/ui/icons/Cross";
 
+//added
+import {Product} from "~/product/types";
+import Image from "~/ui/feedback/Image";
+
 interface Props {
+  products: Product[];  //added
   items: CartItem[];
   onDecrease: (id: CartItem["id"]) => void;
   onIncrease: (id: CartItem["id"]) => void;
@@ -29,12 +34,14 @@ const Overview: React.FC<Props> = ({
   onSubmit,
   onClose,
   hasNextStep,
+  products, //added
 }) => {
   const [isLoading, toggleLoading] = React.useState(false);
   const t = useTranslation();
   const p = usePrice();
   const count = getCount(items);
-  const total = getTotal(items);
+  const total = getTotal(items);  
+  //const {image, title, price, originalPrice, description, type} = product; //added
 
   function handleSubmit() {
     toggleLoading(true);
@@ -77,7 +84,18 @@ const Overview: React.FC<Props> = ({
           <Stack shouldWrapChildren spacing={6}>
             {items.map((item) => (
               <Flex key={item.id} alignItems="flex-start" justifyContent="space-between">
-                <Flex alignItems="center" mr={2}>
+                {(
+                  <Flex alignItems="center">
+                    <Image
+                      fadeIn
+                      height={{base: 24, sm: 24}}
+                      rounded="md"
+                      src={products.find((_product) => _product.id === item.product.id).image || "/assets/fallback.jpg"}
+                      width={{base: 24, sm: 24}}
+                    />
+                  </Flex>
+                )}
+                <Flex alignItems="center" mr={2} ml={2}  width={"100%"}>
                   <Stack spacing={0}>
                     <Text fontWeight={500} overflowWrap="break-word">
                       {item.product.title}

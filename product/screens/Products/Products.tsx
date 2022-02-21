@@ -203,6 +203,7 @@ const ProductsScreen: React.FC = () => {
           onClose={closeCart}
           onDecrease={decrease}
           onIncrease={increase}
+          products={products}
         />
       )}
       {Boolean(selected) && (

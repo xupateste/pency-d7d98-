@@ -183,7 +183,7 @@
   },
   "products": {
     "empty": "No se encontraron productos",
-    "review": "🚀 Tu pedido",
+    "review": "📝 Tu pedido",
     "variants": {
       "countError": "Debes seleccionar {{count}} opciones",
       "emptyError": "Debes seleccionar al menos una opción"
