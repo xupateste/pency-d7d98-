@@ -28,11 +28,13 @@ const CartProvider = ({children}: Props) => {
 
   function add(product: Product, variants: Variant[], count: number = 1, note: string = "") {
     log.addToCart(product, variants, count);
+    
+    
 
     return setCart(
       produce((cart) => {
         const id = shortid.generate();
-
+        //accumulate
         cart[id] = {
           id,
           variants,
