@@ -59,7 +59,7 @@ const AdminScreen: React.FC = () => {
               <Flex alignItems="center" justifyContent="space-between" paddingX={4} width="100%">
                 {filters}
                 <Stack isInline shouldWrapChildren marginLeft={4} spacing={2}>
-                  {flags?.includes("bulk") && (
+                  {(
                     <ProductsUpsertButton
                       display={{base: "none", sm: "flex"}}
                       products={products}

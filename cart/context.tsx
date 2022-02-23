@@ -35,13 +35,21 @@ const CartProvider = ({children}: Props) => {
       produce((cart) => {
         const id = shortid.generate();
         //accumulate
-        cart[id] = {
-          id,
-          variants,
-          count,
-          product,
-          note,
-        };
+        var foundDup = items.find(i => {
+          return i.product.id === product.id
+        })
+
+        if (foundDup) {
+          cart[foundDup.id].count += count
+        } else {
+          cart[id] = {
+            id,
+            variants,
+            count,
+            product,
+            note,
+          };
+        }
       }),
     );
   }
