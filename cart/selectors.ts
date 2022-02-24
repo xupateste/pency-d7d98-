@@ -94,6 +94,18 @@ function _getItems(items: CartItem[]): string {
     .join("\n");
 }
 
+function _getHeader() : string {
+  return (
+    "\`\`\`FERRETERIA “SAN MATÍAS”" +
+    "\n" +
+    "Av. Modesto Borda 743 Juliaca" +
+    "\n" +
+    "*****************************" +
+    "\`\`\`" +
+    "\n\n"
+  )
+}
+
 export function getMessage(
   items: CartItem[],
   orderId: string,
@@ -101,6 +113,7 @@ export function getMessage(
   preference?: string,
 ): string {
   return (
+    _getHeader() +
     `PEDIDO: *${orderId}*` +
     "\n\n" +
     _getItems(items) +

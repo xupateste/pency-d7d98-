@@ -90,7 +90,7 @@ const Overview: React.FC<Props> = ({
                       fadeIn
                       height={{base: 24, sm: 24}}
                       rounded="md"
-                      src={products.find((_product) => _product.id === item.product.id).image || "/assets/fallback.jpg"}
+                      src={products.find((_product) => _product.id === item.product.id) ? products.find((_product) => _product.id === item.product.id).image : "/assets/fallback.jpg"}
                       width={{base: 24, sm: 24}}
                     />
                   </Flex>

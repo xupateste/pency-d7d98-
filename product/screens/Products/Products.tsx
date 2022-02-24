@@ -3,7 +3,7 @@ import {Stack, Box, PseudoBox, Flex, useDisclosure, Text} from "@chakra-ui/core"
 import {useRouter} from "next/router";
 
 import ProductCard from "../../components/ProductCard";
-import {useFilteredProducts} from "../../hooks";
+import {useFilteredProducts, useProducts} from "../../hooks";
 import ProductsGrid from "../../components/ProductsGrid";
 import ProductsCarousel from "../../components/ProductsCarousel";
 
@@ -33,6 +33,7 @@ const ProductsScreen: React.FC = () => {
   const t = useTranslation();
   const {isOpen: isCartOpen, onOpen: openCart, onClose: closeCart} = useDisclosure();
   const {products, filters} = useFilteredProducts((product) => product.type !== "hidden");
+  const productsAll = useProducts();
   const {highlight, fields, layout, ...tenant} = useTenant();
   const selected = React.useMemo(() => products.find((_product) => _product.id === product), [
     products,
@@ -203,7 +204,7 @@ const ProductsScreen: React.FC = () => {
           onClose={closeCart}
           onDecrease={decrease}
           onIncrease={increase}
-          products={products}
+          products={productsAll}
         />
       )}
       {Boolean(selected) && (
