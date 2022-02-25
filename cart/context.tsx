@@ -14,6 +14,10 @@ import {useTenant} from "~/tenant/hooks";
 import {Field} from "~/tenant/types";
 import {isMercadoPagoSelected} from "~/tenant/selectors";
 
+import apiClient from "~/product/api/client"; //added
+
+
+
 interface Props {
   children: JSX.Element | JSX.Element[];
 }
@@ -23,6 +27,7 @@ const CartContext = React.createContext({} as Context);
 const CartProvider = ({children}: Props) => {
   const log = useAnalytics();
   const {phone, slug, mercadopago, hook} = useTenant();
+  const tenant = useTenant();
   const [cart, setCart] = React.useState<Cart>({});
   const items = React.useMemo(() => [].concat(...Object.values(cart)), [cart]);
 
@@ -108,6 +113,7 @@ const CartProvider = ({children}: Props) => {
         if (hook) {
           api.hook(hook, {phone, items, orderId, fields, preference});
         }
+        
 
         // Redirect the new tab to the corresponding url
         tab.location.href = api.checkout({phone, items, orderId, fields, preference});
@@ -122,7 +128,15 @@ const CartProvider = ({children}: Props) => {
       // Do a post to it
       api.hook(hook, {phone, items, orderId, fields});
     }
-
+    
+    apiClient
+      .hookorder(tenant.id, {orderId: orderId, items: items, fields: fields, phone: phone})
+      .then()
+      .catch(err => {console.log(err)})
+    
+    // added
+    
+    
     // If we don't have mercadopago configured and selected, redirect the user to whatsapp
     window.open(api.checkout({phone, items, orderId, fields}));
   }

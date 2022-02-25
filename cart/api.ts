@@ -2,6 +2,8 @@ import {getMessage} from "./selectors";
 
 import fetch from "~/utils/fetch";
 
+//import {database} from "~/firebase/admin";
+
 export default {
   checkout: ({phone, items, orderId, fields, preference = null}) =>
     `https://wa.me/${phone}?text=${encodeURIComponent(

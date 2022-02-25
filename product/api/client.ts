@@ -35,4 +35,13 @@ export default {
         Authorization: window.localStorage.getItem("token"),
       },
     ),
+  hookorder: (tenant: ClientTenant["slug"], order) =>
+    fetch(
+      "POST",
+      `/api/tenant/${tenant}/order`,
+      {order},
+      {
+        Authorization: window.localStorage.getItem("token"),
+      },
+    ),
 };

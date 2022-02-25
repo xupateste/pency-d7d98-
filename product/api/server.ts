@@ -77,4 +77,15 @@ export default {
 
     return batch.commit().then(() => products);
   },
+
+  hookorder: (tenant: ClientTenant["id"], order) => {
+    //const casted = schemas.server.create.cast(product);
+
+    return database
+      .collection("tenants")
+      .doc(tenant)
+      .collection("orders")
+      .add(order)
+      .then();
+  },
 };
