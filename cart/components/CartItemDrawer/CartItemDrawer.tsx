@@ -146,7 +146,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     onClick={handleShare}
                   />
                 )}
-                {product.image && <ToggleableImage maxHeight="40vh" src={product.image} />}
+                {<ToggleableImage maxHeight="40vh" src={product.image || "/assets/fallback.jpg"} />}
                 <Stack
                   shouldWrapChildren
                   direction="column"

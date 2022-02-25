@@ -28,11 +28,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       headers: {},
     } = req as PostRequest;
 
-    console.log('post order called')
+    //console.log('post order called')
     //if (!id || !order) return res.status(304).end('noid noorder');
 
     //if (uid !== id) return res.status(403).end();
-    console.log('inside sessionApi')
+    //console.log('inside sessionApi')
     //const casted = schemas.client.create.cast(product, {stripUnkown: true});
 
     return api
