@@ -13,7 +13,9 @@ import {useProducts} from "~/product/hooks";
 const HomeScreen: React.FC = () => {
   const tenant = useTenant();
   const products = useProducts();
+  //added
 
+  //end added
   return (
     <Content padding={4}>
       <Stack shouldWrapChildren spacing={{base: 4, sm: 8}}>

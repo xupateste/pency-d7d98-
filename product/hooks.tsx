@@ -53,7 +53,12 @@ export function useFilteredProducts(selector?: (product: Product) => boolean) {
     if (category) {
       document
         .querySelector(`[id="${category}"]`)
-        ?.scrollIntoView({behavior: "smooth", block: "nearest", inline: "start"});
+        ?.scrollIntoView(true)
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
     }
   }
 

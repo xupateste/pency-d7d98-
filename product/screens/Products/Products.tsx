@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {Stack, Box, PseudoBox, Flex, useDisclosure, Text} from "@chakra-ui/core";
+import BTT from "~/ui/icons/BTT";
 import {useRouter} from "next/router";
 
 import ProductCard from "../../components/ProductCard";
@@ -42,6 +43,15 @@ const ProductsScreen: React.FC = () => {
 
   const featuredProducts = filterBy(products, {featured: true});
   const productsByCategory = groupBy(products, (product) => product.category);
+
+  //added
+  const [scrollPosition] = useState(0);
+  
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  //end added
 
   function handleAdd(product: Product, options: Variant[], count: number, note: string) {
     add(product, options, count, note);
@@ -156,6 +166,16 @@ const ProductsScreen: React.FC = () => {
             </Box>
           </Content>
         </Flex>
+        {scrollPosition > 500 && (<Link onClick={scrollToTop}>
+            <Box position='fixed'
+                bottom='70px'
+                color="primary"
+                right={['16px', '84px']}
+                zIndex={1}
+            >
+                <BTT w={10} h={10} />
+            </Box>
+        </Link>)} 
       </Flex>
       {Boolean(items.length) && (
         <Flex

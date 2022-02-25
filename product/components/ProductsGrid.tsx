@@ -24,7 +24,7 @@ const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...pr
           data-test-id="title"
           fontSize={{base: "xl", sm: "2xl"}}
           fontWeight={500}
-          textTransform="capitalize"
+          textTransform="capitalize"  
         >
           {title}
         </Text>

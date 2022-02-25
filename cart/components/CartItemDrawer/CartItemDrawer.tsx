@@ -151,7 +151,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                   shouldWrapChildren
                   direction="column"
                   flex={1}
-                  marginTop={product.image ? 0 : 16}
+                  marginTop={product.image ? 0 : 0}
                   paddingTop={4}
                   paddingX={{base: 4, sm: 12}}
                   spacing={6}
