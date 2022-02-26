@@ -19,6 +19,7 @@ import productSchemas from "~/product/schemas";
 interface Props {
   tenant: ClientTenant;
   products: Product[];
+  category: string | string[];
 }
 
 const SlugRoute: React.FC<Props> = ({tenant, products}) => {
@@ -30,13 +31,17 @@ const SlugRoute: React.FC<Props> = ({tenant, products}) => {
     ? products.find((product) => product.id === router.query.product) || null
     : null;
 
+  // added get category
+  const category = router.query.category || null;
+  // end added
+
   return (
     <TenantProvider initialValue={tenant}>
       {(tenant) => (
         <ProductProvider initialValues={products}>
           <AnalyticsProvider>
             <CartProvider>
-              <StoreLayout product={product} tenant={tenant}>
+              <StoreLayout product={product} category={category} tenant={tenant}>
                 <I18nProvider country={tenant.country}>
                   <ProductsScreen />
                 </I18nProvider>

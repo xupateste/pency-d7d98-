@@ -11,9 +11,10 @@ import {CURRENCIES} from "~/i18n/constants";
 interface Props {
   tenant: ClientTenant;
   product: Product;
+  category: string | string[];
 }
 
-const StoreLayout: React.FC<Props> = ({tenant, product, children}) => (
+const StoreLayout: React.FC<Props> = ({tenant, product, category, children}) => (
   <>
     <Global
       styles={css`
@@ -40,7 +41,7 @@ const StoreLayout: React.FC<Props> = ({tenant, product, children}) => (
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
         rel="stylesheet"
       />
-      <title>{tenant.title || META.title}</title>
+      <title>{tenant.title || category}</title>
       <meta content={tenant.color || META.theme} name="theme-color" />
       <meta content={tenant.description || META.description} name="description" />
       <meta content={tenant.keywords || META.keywords} name="keywords" />

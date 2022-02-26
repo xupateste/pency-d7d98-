@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {Stack, Box, PseudoBox, Flex, useDisclosure, Text} from "@chakra-ui/core";
 import BTT from "~/ui/icons/BTT";
 import {useRouter} from "next/router";
@@ -27,7 +27,7 @@ import Link from "~/ui/controls/Link";
 
 const ProductsScreen: React.FC = () => {
   const {
-    query: {product},
+    query: {product, category},
     push,
   } = useRouter();
   const {add, increase, decrease, items, checkout} = useCart();
@@ -44,9 +44,24 @@ const ProductsScreen: React.FC = () => {
   const featuredProducts = filterBy(products, {featured: true});
   const productsByCategory = groupBy(products, (product) => product.category);
 
-  //added
-  const [scrollPosition] = useState(0);
-  
+  // added
+  const scrollPosition = 0
+
+  function scrollToCategory() {
+    if(category) {
+      setTimeout(() => {
+        document
+          .querySelector(`[id="${category}"]`)
+          ?.scrollIntoView()
+        var scrolledY = window.scrollY;
+        if(scrolledY){
+          //window.scroll(0, scrolledY - 60);
+          window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+        }
+        console.log('yup')
+      }, 0)
+    } 
+  }
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -230,6 +245,8 @@ const ProductsScreen: React.FC = () => {
       {Boolean(selected) && (
         <CartItemDrawer product={selected} onClose={handleCloseSelected} onSubmit={handleAdd} />
       )}
+
+      {scrollToCategory()}
       <Onboarding />
     </>
   );
