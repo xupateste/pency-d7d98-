@@ -45,7 +45,15 @@ const ProductsScreen: React.FC = () => {
   const productsByCategory = groupBy(products, (product) => product.category);
 
   // added
-  const scrollPosition = 0
+  let scrollPosition = 0
+  window.onscroll = () => {
+    scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
+    if (scrollPosition > 500) {
+      document.querySelector<HTMLElement>(`[id="btt"]`).style.display='block'
+    } else {
+      document.querySelector<HTMLElement>(`[id="btt"]`).style.display='none'
+    }
+  };
 
   function scrollToCategory() {
     if(category) {
@@ -58,7 +66,6 @@ const ProductsScreen: React.FC = () => {
           //window.scroll(0, scrolledY - 60);
           window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
         }
-        console.log('yup')
       }, 0)
     } 
   }
@@ -181,7 +188,7 @@ const ProductsScreen: React.FC = () => {
             </Box>
           </Content>
         </Flex>
-        {scrollPosition > 500 && (<Link onClick={scrollToTop}>
+        <Link id="btt" onClick={scrollToTop}>
             <Box position='fixed'
                 bottom='70px'
                 color="primary"
@@ -190,7 +197,7 @@ const ProductsScreen: React.FC = () => {
             >
                 <BTT w={10} h={10} />
             </Box>
-        </Link>)} 
+        </Link>
       </Flex>
       {Boolean(items.length) && (
         <Flex
