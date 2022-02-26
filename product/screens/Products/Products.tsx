@@ -49,9 +49,9 @@ const ProductsScreen: React.FC = () => {
   window.onscroll = () => {
     scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
     if (scrollPosition > 500) {
-      document.querySelector<HTMLElement>(`[id="btt"]`).style.display='block'
+      document.querySelector<HTMLElement>(`[id="btt"]`).style.display='none' ? document.querySelector<HTMLElement>(`[id="btt"]`).style.display='block' : ''
     } else {
-      document.querySelector<HTMLElement>(`[id="btt"]`).style.display='none'
+      document.querySelector<HTMLElement>(`[id="btt"]`).style.display='block' ? document.querySelector<HTMLElement>(`[id="btt"]`).style.display='none' : ''
     }
   };
 
