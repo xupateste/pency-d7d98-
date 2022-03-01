@@ -96,10 +96,11 @@ function _getItems(items: CartItem[]): string {
 
 function _getHeader() : string {
   return (
-    "\`\`\`FERRETERIA “SAN MATÍAS”" +
+    "\`\`\`\n" +
+    "FERRETERIA “SAN MATÍAS”" +
     "\n" +
     "Av. Modesto Borda 743 Juliaca" +
-    "\n" +
+    "\n\n" +
     "*****************************" +
     "\`\`\`" +
     "\n\n"

@@ -64,7 +64,7 @@ const TenantHeader: React.FC<Props> = ({
             {title}
           </Text>
           <Text color="gray.500" fontSize={{base: "sm", sm: "md"}} lineHeight="tall">
-            {description}
+            {`TU CASA ES PARA SIEMPRE. `+description}
           </Text>
           {(
             <Stack isInline alignItems="center" color="primary.500" marginTop={1} spacing={1}>
@@ -74,7 +74,7 @@ const TenantHeader: React.FC<Props> = ({
                 href={`https://goo.gl/maps/3yFCw5mQm574YDb66`}
               >
                 <Text fontSize={{base: "sm", sm: "md"}} lineHeight="tall">
-                  {'Av. Modesto Borda 743 - Juliaca 🇵🇪'}
+                  {'Av. Modesto Borda 743 - Juliaca - Perú'}
                 </Text>
               </Link>
             </Stack>

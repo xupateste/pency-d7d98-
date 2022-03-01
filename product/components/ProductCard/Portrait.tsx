@@ -57,7 +57,8 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
       >
         <Text
           display="block"
-          fontSize="md"
+          fontSize="sm"
+          textTransform="uppercase"
           fontWeight={500}
           lineHeight="normal"
           marginBottom={2}
@@ -67,25 +68,25 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         </Text>
         {type === "available" && (
           <Stack isInline alignItems="center">
-            <Text color="green.500" fontSize="sm" fontWeight={500} lineHeight={1}>
+            <Text color="green.500" fontSize="lg" fontWeight={600} lineHeight={1}>
               {p(price)}
             </Text>
           </Stack>
         )}
         {type === "promotional" && (
           <Stack isInline alignItems="center">
-            <Text color="green.500" fontSize="sm" fontWeight={500} lineHeight={1}>
+            <Text color="green.500" fontSize="lg" fontWeight={600} lineHeight={1}>
               {p(price)}
             </Text>
             {originalPrice && (
-              <Text color="gray.500" fontSize="sm" lineHeight={1} textDecoration="line-through">
+              <Text color="gray.500" fontSize="md" lineHeight={1} textDecoration="line-through">
                 {p(originalPrice)}
               </Text>
             )}
           </Stack>
         )}
         {type === "unavailable" && (
-          <Text color="yellow.500" fontSize="sm" fontWeight={500} lineHeight={1}>
+          <Text color="yellow.500" fontSize="md" fontWeight={900} lineHeight={1}>
             Sin stock
           </Text>
         )}

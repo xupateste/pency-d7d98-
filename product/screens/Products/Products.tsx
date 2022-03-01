@@ -45,6 +45,10 @@ const ProductsScreen: React.FC = () => {
   const productsByCategory = groupBy(products, (product) => product.category);
 
   // added
+  setTimeout(() => {
+    document.querySelector<HTMLElement>(`[id="btt"]`).style.display='none'
+  }, 0)
+  
   let scrollPosition = 0
   window.onscroll = () => {
     scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
@@ -150,7 +154,7 @@ const ProductsScreen: React.FC = () => {
                   {Boolean(products.length) ? (
                     <Stack spacing={{base: 5, sm: 10}} width="100%">
                       {Boolean(featuredProducts.length) && (
-                        <ProductsCarousel title={t("common.featured")} zIndex={0}>
+                        <ProductsCarousel title={t("PROMOCIONES")} zIndex={0}>
                           {featuredProducts.map((product) => (
                             <ProductCard
                               key={product.id}
