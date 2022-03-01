@@ -234,12 +234,11 @@ const ProductsScreen: React.FC = () => {
           direction={{base: "column", sm: "row"}}
           justifyContent="flex-end"
           padding={4}
-        >
-          <Link href="/">
-            <Stack isInline alignItems="center" spacing={1}>
-              <Text fontSize="sm">{'© 2022 Ferreteria San Matías, Juliaca'}</Text>
-            </Stack>
-          </Link>
+        >  
+          <Stack w="100%" alignItems="center" spacing={1}>
+            <Text fontSize="sm">{'© 2022 Ferreteria San Matías, Juliaca'}</Text>
+            <Text fontSize="sm">{'\n'}{'With ❤ by '} <Link href="https://wa.me/51930240108?text=Hola Chris!">Chris</Link></Text>
+          </Stack>
         </Flex>
       </Content>
       {isCartOpen && (
