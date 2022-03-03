@@ -67,7 +67,7 @@ const Onboarding = () => {
                 >
                   <Text>1</Text>
                 </Flex>
-                <Text>Elegí los productos que quieras</Text>
+                <Text>Selecciona los productos que quieras</Text>
               </Stack>
               <Stack isInline alignItems="baseline" spacing={3}>
                 <Flex
@@ -84,7 +84,7 @@ const Onboarding = () => {
                 >
                   <Text>2</Text>
                 </Flex>
-                <Text>Revisá y completá tu pedido</Text>
+                <Text>Revisa y completa tu pedido</Text>
               </Stack>
               <Stack isInline alignItems="baseline" spacing={3}>
                 <Flex
@@ -101,7 +101,7 @@ const Onboarding = () => {
                 >
                   <Text>3</Text>
                 </Flex>
-                <Text>¡Listo! Generamos tu pedido para que la tienda lo reciba por WhatsApp</Text>
+                <Text>¡Listo! Generamos tu pedido para que lo recibamos WhatsApp</Text>
               </Stack>
             </Stack>
           </Stack>
