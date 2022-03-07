@@ -1,30 +1,3 @@
-# Pency
-Tu tienda online, fácil.
-
-## Qué es?
-Pency es una tienda online multipropósito, pensada para quienes venden (o quieren vender) vía WhatsApp.
-
-## Qué tiene?
-* Catálogo online
-* Panel de administración para cargar productos
-* Carrito de compra
-* Imagen, precio y descripción para cada producto
-* Opciones para cada producto (pueden modificar el precio del producto)
-* Envío del pedido vía WhatsApp
-* Configuración de la tienda (color, título, descripción, imagen, logo, etc)
-
-## Algo no me anda!
-Podés crear un `issue` acá en GitHub.
-
-## Quiero ayudar!
-Entrá a los `issues` acá en GitHub
-
-## Quiero mi tienda!
-Mandame un mail a gonzalo.pozzo4@gmail.com
-
-## Tengo otra pregunta
-Mandame un mail a gonzalo.pozzo4@gmail.com
-
 ## ¿Cómo puedo correr el proyecto?
 Completá todas las variables que aparecen en `.env.template` y guardalo como `.env.development.local`
 
@@ -90,6 +63,3 @@ npm install && npm run dev
  - Hacemos click en `Send` y comprobamos si se creó la tienda seteando la variable `STORE_SLUG` con el nombre de la tienda y entrando en: `http://localhost:3000`
  -  Para acceder al panel de administración debemos entrar mediante el siguiente link: `http://localhost:3000/admin`
  > Tomá en cuenta que ya que usamos el uid del usuario como id del documento, no podémos tener más de un usuario por tienda ni tampoco más de una tienda por usuario.
-
-## ¿Qué puedo hacer con Pency?
-Podés leer la licencia [acá](./LICENSE.md). En resumen, podés usar Pency para lo que quieras mientras no lucres con eso y menciones la fuente original cuando lo uses 🥰.
