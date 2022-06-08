@@ -40,7 +40,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
     >
       <Image
         fadeIn
-        height={{base: 48, sm: 64}}
+        height={{base: 48, sm: 48}}
         rounded="md"
         src={image || "/assets/fallback.jpg"}
         width="100%"

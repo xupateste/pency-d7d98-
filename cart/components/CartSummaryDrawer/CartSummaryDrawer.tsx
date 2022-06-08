@@ -101,6 +101,7 @@ const CartSummaryDrawer: React.FC<Props> = ({
           onPrevious={handlePrevious}
           onSubmit={handleCheckoutWithFields}
         />
+
       )}
     </Drawer>
   );

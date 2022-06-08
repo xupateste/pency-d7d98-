@@ -64,7 +64,7 @@ const TenantHeader: React.FC<Props> = ({
             {title}
           </Text>
           <Text color="gray.500" fontSize={{base: "sm", sm: "md"}} lineHeight="tall">
-            {`TU CASA ES PARA SIEMPRE. `+description}
+            {description}
           </Text>
           {(
             <Stack isInline alignItems="center" color="primary.500" marginTop={1} spacing={1}>

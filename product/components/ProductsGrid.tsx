@@ -46,10 +46,10 @@ const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...pr
     {layout === "portrait" && (
       <Grid
         autoRows="auto"
-        gridGap={{base: 4, sm: 8}}
+        gridGap={{base: 4, sm: 6}}
         templateColumns={{
-          base: "repeat(auto-fill, minmax(140px,1fr))",
-          sm: "repeat(auto-fill, minmax(200px,1fr))",
+          base: "repeat(auto-fill, minmax(120px,1fr))",
+          sm: "repeat(auto-fill, minmax(180px,1fr))",
         }}
       >
         {children}

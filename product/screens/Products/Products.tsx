@@ -154,7 +154,7 @@ const ProductsScreen: React.FC = () => {
                   {Boolean(products.length) ? (
                     <Stack spacing={{base: 5, sm: 10}} width="100%">
                       {Boolean(featuredProducts.length) && (
-                        <ProductsCarousel title={t("PROMOCIONES")} zIndex={0}>
+                        <ProductsCarousel title={t("ITEMS POR AGOTARSE")} zIndex={0}>
                           {featuredProducts.map((product) => (
                             <ProductCard
                               key={product.id}

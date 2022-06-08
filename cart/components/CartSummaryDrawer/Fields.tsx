@@ -11,6 +11,10 @@ import {useTranslation} from "~/i18n/hooks";
 import ArrowLeftIcon from "~/ui/icons/ArrowLeft";
 import CrossIcon from "~/ui/icons/Cross";
 
+//import QrCode from "~/ui/feedback/QrCode2"; //added
+
+//import {getMessage} from "../../selectors"; // added
+
 interface Props {
   fields: Field[];
   onSubmit: (fields: Field[]) => void;
@@ -21,6 +25,11 @@ interface Props {
 const Fields: React.FC<Props> = ({fields, onSubmit, onClose, onPrevious}) => {
   const [isLoading, toggleLoading] = React.useState(false);
   const t = useTranslation();
+
+  /*//added
+  const [cart, setCart] = React.useState<Cart>({});
+  const items = React.useMemo(() => [].concat(...Object.values(cart)), [cart]);
+  // end added*/
 
   function handleSubmit(event: React.MouseEvent, submit: () => Promise<void>) {
     event.stopPropagation();
