@@ -83,7 +83,7 @@ const ProductsScreen: React.FC = () => {
   function handleAdd(product: Product, options: Variant[], count: number, note: string) {
     add(product, options, count, note);
 
-	 //push(`/`);
+   //push(`/`);
     push(`/`, `/`, {shallow: true});
   }
 
@@ -93,7 +93,7 @@ const ProductsScreen: React.FC = () => {
 
   function handleCloseSelected() {
     //push(`/`);
-	 push(`/`, `/`, {shallow: true});
+   push(`/`, `/`, {shallow: true});
   }
 
   function handleSelect(product: Product) {
@@ -123,61 +123,88 @@ const ProductsScreen: React.FC = () => {
             <Box flex={1}>
               {highlight && (
                 <Box
-                  fontSize={{base: "sm", sm: "md"}}
+                  fontSize={{base: "md", sm: "sm"}}
                   fontWeight="500"
                   marginTop={0}
                   paddingX={4}
                   paddingY={3}
                   roundedTop={{base: 0, sm: "lg"}}
-                  textAlign={{base: "left", sm: "left"}}
+                  textAlign='center'
                 >
                   {/*highlight*/}
                   <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={4}>
-                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
-                      <Image fadeIn src={"/assets/ae.jpg"}/>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
+                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
                       <Text
-                        display="block"
-                        fontSize="sm"
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
                         marginBottom={2}
-                        overflowWrap="break-word"
+                        marginTop={2}
                       >
                         ACCESORIOS ELECTRICOS
                       </Text>
                     </Box>
-                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
-                      <Image fadeIn src={"/assets/herr.jpg"}/>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
+                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
                       <Text
-                        display="block"
-                        fontSize="sm"
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
                         marginBottom={2}
-                        overflowWrap="break-word"
+                        marginTop={2}
                       >
                         HERRAMIENTAS
                       </Text>
                     </Box>
-                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
-                      <Image fadeIn src={"/assets/ae.jpg"}/>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
+                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
                       <Text
-                        display="block"
-                        fontSize="sm"
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
                         marginBottom={2}
-                        overflowWrap="break-word"
+                        marginTop={2}
+                      >
+                        LIMPIEZA Y PLAGICIDAS
+                      </Text>
+                    </Box>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
+                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
+                      <Text
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={2}
+                        marginTop={2}
                       >
                         ACCESORIOS ELECTRICOS
                       </Text>
                     </Box>
-                    <Box bg="#ebf8ff" borderWidth="1px"></Box>
-                    <Box bg="#ebf8ff" borderWidth="1px"></Box>                    
-                    <Box bg="#ebf8ff" borderWidth="1px"></Box>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
+                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
+                      <Text
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={2}
+                        marginTop={2}
+                      >
+                        HERRERIA Y PERNERIA
+                      </Text>
+                    </Box>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
+                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
+                      <Text
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={2}
+                        marginTop={2}
+                      >
+                        LIMPIEZA Y PLAGICIDAS
+                      </Text>
+                    </Box>
                   </SimpleGrid>
                 </Box>
               )}
