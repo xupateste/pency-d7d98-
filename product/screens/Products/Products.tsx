@@ -135,11 +135,7 @@ const ProductsScreen: React.FC = () => {
             <Box flex={1}>
               {highlight && (
                 <Box
-<<<<<<< HEAD
                   fontSize={{base: "13px", sm: "xs"}}
-=======
-                  fontSize={{base: "md", sm: "sm"}}
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                   fontWeight="500"
                   marginTop={0}
                   paddingX={4}
@@ -148,78 +144,38 @@ const ProductsScreen: React.FC = () => {
                   textAlign='center'
                 >
                   {/*highlight*/}
-<<<<<<< HEAD
                   <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={2}>
                     <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
                       <Image fadeIn src={"/assets/ae.png"} h='67%'/>
-=======
-                  <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={4}>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
-                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                       <Text
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
-<<<<<<< HEAD
                         marginBottom={1}
-=======
-                        marginBottom={2}
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                         marginTop={2}
                       >
                         ACCESORIOS ELECTRICOS
                       </Text>
                     </Box>
-<<<<<<< HEAD
                     <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
                       <Image fadeIn src={"/assets/herr.png"} h='67%'/>
-=======
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
-                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                       <Text
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
-<<<<<<< HEAD
                         marginBottom={1}
-=======
-                        marginBottom={2}
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                         marginTop={2}
                       >
                         HERRAMIENTAS
                       </Text>
                     </Box>
-<<<<<<< HEAD
                     <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
                       <Image fadeIn src={"/assets/gatu.png"} h='67%'/>
-=======
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
-                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                       <Text
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
-<<<<<<< HEAD
                         marginBottom={1}
-=======
-                        marginBottom={2}
-                        marginTop={2}
-                      >
-                        LIMPIEZA Y PLAGICIDAS
-                      </Text>
-                    </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
-                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
-                      <Text
-                        textTransform="uppercase"
-                        fontWeight={500}
-                        lineHeight="normal"
-                        marginBottom={2}
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                         marginTop={2}
                       >
                         GASFITERIA Y TUBERIA
@@ -261,33 +217,6 @@ const ProductsScreen: React.FC = () => {
                         HERRERIA Y PERNERIA
                       </Text>
                     </Box>
-<<<<<<< HEAD
-=======
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
-                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
-                      <Text
-                        textTransform="uppercase"
-                        fontWeight={500}
-                        lineHeight="normal"
-                        marginBottom={2}
-                        marginTop={2}
-                      >
-                        HERRERIA Y PERNERIA
-                      </Text>
-                    </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3}>
-                      <Image fadeIn src={"/assets/ae.png"} h='65%'/>
-                      <Text
-                        textTransform="uppercase"
-                        fontWeight={500}
-                        lineHeight="normal"
-                        marginBottom={2}
-                        marginTop={2}
-                      >
-                        LIMPIEZA Y PLAGICIDAS
-                      </Text>
-                    </Box>
->>>>>>> e65e4735658047661571c7ba7598031f5cc7c4e1
                   </SimpleGrid>
                 </Box>
               )}
