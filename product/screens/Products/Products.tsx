@@ -83,7 +83,7 @@ const ProductsScreen: React.FC = () => {
   function handleAdd(product: Product, options: Variant[], count: number, note: string) {
     add(product, options, count, note);
 
-	 //push(`/`);
+   //push(`/`);
     push(`/`, `/`, {shallow: true});
   }
 
@@ -93,7 +93,7 @@ const ProductsScreen: React.FC = () => {
 
   function handleCloseSelected() {
     //push(`/`);
-	 push(`/`, `/`, {shallow: true});
+   push(`/`, `/`, {shallow: true});
   }
 
   function handleSelect(product: Product) {
@@ -113,6 +113,18 @@ const ProductsScreen: React.FC = () => {
       {shallow: true},
     );
   }
+  function handleCategoryClick() {
+    setTimeout(() => {
+      document
+        .querySelector(`[id="CHAPERIA"]`)
+        ?.scrollIntoView()
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }, 0)
+  }
 
   return (
     <>
@@ -123,61 +135,88 @@ const ProductsScreen: React.FC = () => {
             <Box flex={1}>
               {highlight && (
                 <Box
-                  fontSize={{base: "sm", sm: "md"}}
+                  fontSize={{base: "13px", sm: "xs"}}
                   fontWeight="500"
                   marginTop={0}
                   paddingX={4}
                   paddingY={3}
                   roundedTop={{base: 0, sm: "lg"}}
-                  textAlign={{base: "left", sm: "left"}}
+                  textAlign='center'
                 >
                   {/*highlight*/}
-                  <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={4}>
-                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
-                      <Image fadeIn src={"/assets/ae.jpg"}/>
+                  <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={2}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                      <Image fadeIn src={"/assets/ae.png"} h='67%'/>
                       <Text
-                        display="block"
-                        fontSize="sm"
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
-                        marginBottom={2}
-                        overflowWrap="break-word"
+                        marginBottom={1}
+                        marginTop={2}
                       >
                         ACCESORIOS ELECTRICOS
                       </Text>
                     </Box>
-                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
-                      <Image fadeIn src={"/assets/herr.jpg"}/>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                      <Image fadeIn src={"/assets/herr.png"} h='67%'/>
                       <Text
-                        display="block"
-                        fontSize="sm"
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
-                        marginBottom={2}
-                        overflowWrap="break-word"
+                        marginBottom={1}
+                        marginTop={2}
                       >
                         HERRAMIENTAS
                       </Text>
                     </Box>
-                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
-                      <Image fadeIn src={"/assets/ae.jpg"}/>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                      <Image fadeIn src={"/assets/gatu.png"} h='67%'/>
                       <Text
-                        display="block"
-                        fontSize="sm"
                         textTransform="uppercase"
                         fontWeight={500}
                         lineHeight="normal"
-                        marginBottom={2}
-                        overflowWrap="break-word"
+                        marginBottom={1}
+                        marginTop={2}
                       >
-                        ACCESORIOS ELECTRICOS
+                        GASFITERIA Y TUBERIA
                       </Text>
                     </Box>
-                    <Box bg="#ebf8ff" borderWidth="1px"></Box>
-                    <Box bg="#ebf8ff" borderWidth="1px"></Box>                    
-                    <Box bg="#ebf8ff" borderWidth="1px"></Box>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                      <Image fadeIn src={"/assets/lipg.png"} h='67%'/>
+                      <Text
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={1}
+                        marginTop={2}
+                      >
+                        LIMPIEZA Y PLAGICIDAS
+                      </Text>
+                    </Box>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                      <Image fadeIn src={"/assets/cha.png"} h='67%'/>
+                      <Text
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={1}
+                        marginTop={2}
+                      >
+                        CHAPERIA
+                      </Text>
+                    </Box>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                      <Image fadeIn src={"/assets/hepe.png"} h='67%'/>
+                      <Text
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={1}
+                        marginTop={2}
+                      >
+                        HERRERIA Y PERNERIA
+                      </Text>
+                    </Box>
                   </SimpleGrid>
                 </Box>
               )}
@@ -259,7 +298,7 @@ const ProductsScreen: React.FC = () => {
           paddingX={4}
           position="sticky"
           width="100%"
-          zIndex={2}
+          zIndex={4}
         >
           <Box
             display="block"

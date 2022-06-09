@@ -97,7 +97,7 @@ const Overview: React.FC<Props> = ({
                 )}
                 <Flex alignItems="center" mr={2} ml={2}  width={"100%"}>
                   <Stack spacing={0}>
-                    <Text fontWeight={500} overflowWrap="break-word">
+                    <Text fontWeight={500} overflowWrap="break-word" fontSize="sm">
                       {item.product.title}
                     </Text>
                     {item.variants && (
@@ -128,7 +128,7 @@ const Overview: React.FC<Props> = ({
           </Flex>
           {hasNextStep ? (
             <Button boxShadow="lg" size="lg" variantColor="primary" onClick={handleNext}>
-              {t("common.next")}
+              ➡ {t("common.next")} ➡
             </Button>
           ) : (
             <CheckoutButton isLoading={isLoading} onClick={handleSubmit} />

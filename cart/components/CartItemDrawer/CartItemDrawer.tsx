@@ -146,7 +146,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     onClick={handleShare}
                   />
                 )}
-                {<ToggleableImage maxHeight="40vh" src={product.image || "/assets/fallback.jpg"} />}
+                {<ToggleableImage maxHeight="50vh" src={product.image || "/assets/fallback.jpg"} />}
                 <Stack
                   shouldWrapChildren
                   direction="column"
@@ -208,7 +208,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                       submit();
                     }}
                   >
-                    {t("common.add")}
+                    ➕ {t("common.add")}
                   </SummaryButton>
                 )}
                 {product.type === "ask" && (
