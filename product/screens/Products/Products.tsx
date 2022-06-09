@@ -1,5 +1,5 @@
 import React from "react";
-import {Stack, Box, PseudoBox, Flex, useDisclosure, Text} from "@chakra-ui/core";
+import {Stack, Box, PseudoBox, Flex, useDisclosure, Text, SimpleGrid } from "@chakra-ui/core";
 import BTT from "~/ui/icons/BTT";
 import {useRouter} from "next/router";
 
@@ -11,6 +11,7 @@ import ProductsCarousel from "../../components/ProductsCarousel";
 import Onboarding from "./Onboarding";
 
 //import Logo from "~/ui/static/Logo";
+import Image from "~/ui/feedback/Image";
 import {useCart} from "~/cart/hooks";
 import {groupBy} from "~/selectors/group";
 import CartSummaryDrawer from "~/cart/components/CartSummaryDrawer";
@@ -118,21 +119,66 @@ const ProductsScreen: React.FC = () => {
       <Flex direction="column" height="100%">
         <Flex as="main" backgroundColor="white" direction="column" flex={1} height="100%">
           <Content height="100%" paddingX={{base: 0, sm: 4}}>
-            <TenantHeader data-test-id="header" marginBottom={4} tenant={tenant} />
+            <TenantHeader data-test-id="header" marginBottom={0} tenant={tenant} />
             <Box flex={1}>
               {highlight && (
                 <Box
-                  backgroundColor="primary.50"
-                  color="primary.500"
                   fontSize={{base: "sm", sm: "md"}}
                   fontWeight="500"
-                  marginTop={4}
+                  marginTop={0}
                   paddingX={4}
                   paddingY={3}
                   roundedTop={{base: 0, sm: "lg"}}
-                  textAlign={{base: "left", sm: "center"}}
+                  textAlign={{base: "left", sm: "left"}}
                 >
-                  {highlight}
+                  {/*highlight*/}
+                  <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={4}>
+                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
+                      <Image fadeIn src={"/assets/ae.jpg"}/>
+                      <Text
+                        display="block"
+                        fontSize="sm"
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={2}
+                        overflowWrap="break-word"
+                      >
+                        ACCESORIOS ELECTRICOS
+                      </Text>
+                    </Box>
+                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
+                      <Image fadeIn src={"/assets/herr.jpg"}/>
+                      <Text
+                        display="block"
+                        fontSize="sm"
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={2}
+                        overflowWrap="break-word"
+                      >
+                        HERRAMIENTAS
+                      </Text>
+                    </Box>
+                    <Box maxW="sm" bg="#ebf8ff" borderWidth="1px" p={4}>
+                      <Image fadeIn src={"/assets/ae.jpg"}/>
+                      <Text
+                        display="block"
+                        fontSize="sm"
+                        textTransform="uppercase"
+                        fontWeight={500}
+                        lineHeight="normal"
+                        marginBottom={2}
+                        overflowWrap="break-word"
+                      >
+                        ACCESORIOS ELECTRICOS
+                      </Text>
+                    </Box>
+                    <Box bg="#ebf8ff" borderWidth="1px"></Box>
+                    <Box bg="#ebf8ff" borderWidth="1px"></Box>                    
+                    <Box bg="#ebf8ff" borderWidth="1px"></Box>
+                  </SimpleGrid>
                 </Box>
               )}
               <Box
