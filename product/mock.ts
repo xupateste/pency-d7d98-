@@ -6,6 +6,7 @@ export default {
   get withoutVariants(): Product {
     return {
       id: faker.random.uuid(),
+      code: "10009",
       category: faker.commerce.department(),
       image: `https://placehold.it/320x240`,
       description: faker.lorem.paragraph(),

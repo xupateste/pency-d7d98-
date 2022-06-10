@@ -38,7 +38,7 @@ export function useFilteredProducts(selector?: (product: Product) => boolean) {
   const t = useTranslation();
   const [query, setQuery] = React.useState("");
   const filtered = selector ? products.filter(selector) : products;
-  const productsBySearch = React.useMemo(() => filterBy(filtered, {title: query}), [
+  const productsBySearch = React.useMemo(() => filterBy(filtered, {code: query, title:query, description:query}), [
     query,
     filtered,
   ]);

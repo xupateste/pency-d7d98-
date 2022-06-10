@@ -1,5 +1,6 @@
 export interface Product {
   id: string;
+  code: string;
   createdAt: number;
   updatedAt: number;
   title: string;

@@ -52,6 +52,9 @@ const ProductRow: React.FC<Props> = ({onEdit, onRemove, ...product}) => {
           <Text flex={1} fontWeight="500" marginLeft={2}>
             {product.title}
           </Text>
+          <Text flex={1} fontWeight="500" marginLeft={2}>
+            {product.code? product.code : ""} {product.featured ? "Promo" : ""}
+          </Text>
         </Flex>
       </Box>
       <Box as="td" display={{base: "none", md: "table-cell"}} width="220px">

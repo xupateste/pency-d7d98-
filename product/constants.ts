@@ -4,6 +4,7 @@ export const CSV_TEMPLATE = "title;description;price;category\n;;0;;";
 
 export const DEFAULT_PRODUCT: Omit<Product, "id"> = {
   title: "",
+  code: "",
   description: "",
   category: null,
   image: "",

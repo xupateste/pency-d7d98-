@@ -2,7 +2,7 @@ export function filterBy<T>(items: T[], filters: Partial<Record<keyof T, T[keyof
   const matchers = Object.entries(filters);
 
   return items.filter((item) =>
-    matchers.every(([property, matcher]) => {
+    matchers.find(([property, matcher]) => {
       if (!matcher) return true;
 
       const value = item[property as keyof T];

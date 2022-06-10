@@ -66,6 +66,20 @@ const ProductForm: React.FC<Props> = ({defaultValues, children, onSubmit, catego
             </FormControl>
             <FormControl
               isRequired
+              error={errors.code && "Este campo es requerido"}
+              help="Ej: 104412"
+              label="Codigo"
+              name="code"
+            >
+              <Input
+                ref={register({required: true})}
+                autoFocus
+                name="code"
+                placeholder="90001"
+              />
+            </FormControl>
+            <FormControl
+              isRequired
               error={errors.title && "Este campo es requerido"}
               help="Ej: Campera de cuero con apliques de piedras"
               label="Nombre"
