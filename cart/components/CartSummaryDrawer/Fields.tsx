@@ -90,7 +90,7 @@ const Fields: React.FC<Props> = ({fields, items, onSubmit, onClose, onPrevious})
                 <Text>[...] Consultar en el siguiente paso</Text>
               </Box>
               <Box>
-                <Text>Desde la primera compra de nuestros clientes éste recibe nuestro agradecimiento mediante bonificaciones y descuentos de acuerdo a su antigüedad con nosotros y estos beneficios crecen :)</Text>
+                <Text>Desde la primera compra nuestros clientes reciben nuestro agradecimiento mediante bonificaciones y descuentos de acuerdo a su antigüedad con nosotros y estos beneficios crecen :)</Text>
               </Box>
               <Box>
                 <Text>Dale click 👇 y coordinemos tu pedido 🤜🤛</Text>
