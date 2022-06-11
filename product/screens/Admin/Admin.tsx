@@ -2,7 +2,7 @@ import React from "react";
 import {Stack, Box, Flex} from "@chakra-ui/core";
 
 import ProductDrawer from "../../components/ProductDrawer";
-import {useFilteredProducts, useProductActions, useProductCategories} from "../../hooks";
+import {useFilteredProductsWithCode, useProductActions, useProductCategories} from "../../hooks";
 import {Product} from "../../types";
 import ProductsList from "../../components/ProductsList";
 
@@ -18,7 +18,7 @@ import ProductsUpsertButton from "~/product/components/ProductsUpsertButton";
 const AdminScreen: React.FC = () => {
   const [selected, setSelected] = React.useState<Partial<Product> | undefined>(undefined);
   const {flags, layout} = useTenant();
-  const {products, filters} = useFilteredProducts();
+  const {products, filters} = useFilteredProductsWithCode();
   const {update, remove, create, upsert} = useProductActions();
   const categories = useProductCategories();
   const productsByCategory = groupBy(products, (product) => product.category);

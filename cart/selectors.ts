@@ -126,7 +126,7 @@ function _getItems(items: CartItem[]): string {
     .map(
       (item) =>
         `·${[
-          `[x${item.count}] ~Cod.xxxxxx`,
+          `[x${item.count}] ~Cod.${item.product.code}`,
           ` ${(item.product.title).length > 27 ? (item.product.title).substring(0, 27).concat('…') : item.product.title}`,
           ` ${getFormattedPrice(item)} (P.U. ${getFormattedUnitPrice(item)})`.substring(0, 28),
         ]
@@ -138,7 +138,7 @@ function _getItems(items: CartItem[]): string {
 
 function _getHeader() : string {
   return (
-    "FERRETERIA “SAN MATÍAS”" +
+    "FERRISUR DISTRIBUIDORA" +
     "\n" +
     "Av. Modesto Borda 743 Juliaca" +
     "\n" +

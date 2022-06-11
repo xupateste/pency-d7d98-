@@ -321,7 +321,7 @@ const ProductsScreen: React.FC = () => {
           padding={4}
         >  
           <Stack w="100%" alignItems="center" spacing={1}>
-            <Text fontSize="sm">{'© 2022 Ferreteria San Matías, Juliaca'}</Text>
+            <Text fontSize="sm">{'© 2022 FERRISUR DISTRIBUIDORA, Juliaca'}</Text>
             <Text fontSize="sm">{'\n'}{'With ❤ by '} <Link href="https://wa.me/51930240108?text=Hola Chris!">Chris</Link></Text>
           </Stack>
         </Flex>
