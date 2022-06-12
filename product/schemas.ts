@@ -7,7 +7,7 @@ export default {
   server: {
     create: yup.object<Product>({
       id: yup.string().strip(true),
-      code: yup.string().strip(true),
+      code: yup.string().default(DEFAULT_PRODUCT.code),
       createdAt: yup.number().default(DEFAULT_PRODUCT.createdAt),
       updatedAt: yup.number().default(DEFAULT_PRODUCT.updatedAt),
       type: yup
@@ -53,7 +53,7 @@ export default {
     }),
     update: yup.object<Partial<Product>>({
       id: yup.string().required(),
-      code: yup.string().required(),
+      code: yup.string().nullable(),
       title: yup.string().nullable(),
       category: yup.string().trim().nullable(),
       description: yup.string().nullable(),
@@ -95,7 +95,7 @@ export default {
   client: {
     fetch: yup.object<Product>({
       id: yup.string().required(),
-      code: yup.string().required(),
+      code: yup.string().required().default(DEFAULT_PRODUCT.code),
       createdAt: yup.number().default(DEFAULT_PRODUCT.createdAt),
       updatedAt: yup.number().default(DEFAULT_PRODUCT.updatedAt),
       type: yup
@@ -152,7 +152,7 @@ export default {
       description: yup.string().nullable(),
       featured: yup.boolean().nullable(),
       id: yup.string().required(),
-      code: yup.string().required(),
+      code: yup.string().nullable(),
       image: yup.string().nullable(),
       options: yup
         .array(
@@ -183,7 +183,7 @@ export default {
     }),
     create: yup.object<Product>({
       id: yup.string().strip(true),
-      code: yup.string().strip(true),
+      code: yup.string().default(DEFAULT_PRODUCT.code),
       createdAt: yup.number().default(DEFAULT_PRODUCT.createdAt),
       updatedAt: yup.number().default(DEFAULT_PRODUCT.updatedAt),
       type: yup

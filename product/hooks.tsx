@@ -182,3 +182,78 @@ export function useFilteredProductsWithCode(selector?: (product: Product) => boo
     ),
   };
 }
+
+export function useFilteredProductsOriginal(selector?: (product: Product) => boolean) {
+  const products = useProducts();
+  const t = useTranslation();
+  const [query, setQuery] = React.useState("");
+  const filtered = selector ? products.filter(selector) : products;
+  const productsBySearch = React.useMemo(() => filterBy(filtered, {title:query}), [
+    query,
+    filtered,
+  ]);
+  const categories = groupBy(filtered, (product) => product.category).map(([category, products]): [
+    Product["category"],
+    number,
+  ] => [category, products.length]);
+
+  function handleCategoryChange(category: Product["category"]) {
+    setQuery("");
+
+    if (category) {
+      document
+        .querySelector(`[id="${category}"]`)
+        ?.scrollIntoView(true)
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }
+  }
+
+  return {
+    products: productsBySearch,
+    filters: (
+      <Flex alignItems="center">
+        <Select
+          flex={{base: 1, sm: "inherit"}}
+          fontWeight="500"
+          height="100%"
+          maxWidth={{base: "100%", sm: "140px"}}
+          paddingLeft={0}
+          placeholder={t("common.categories")}
+          value=""
+          variant="unstyled"
+          width="auto"
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            handleCategoryChange(e.target.value)
+          }
+        >
+          {categories.map(([category, count]) => (
+            <option key={category} value={category}>
+              {category} ({count})
+            </option>
+          ))}
+        </Select>
+        <Divider height={4} orientation="vertical" />
+        <InputGroup alignItems="center" flex={{base: 1, sm: "inherit"}} height={10}>
+          <InputLeftElement
+            children={<Icon color="gray.300" name="search" />}
+            color="gray.300"
+            fontSize="1.2em"
+            top="inherit"
+          />
+          <Input
+            fontSize="md"
+            paddingLeft={10}
+            placeholder={t("filters.search")}
+            value={query}
+            variant="unstyled"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+          />
+        </InputGroup>
+      </Flex>
+    ),
+  };
+}
