@@ -40,11 +40,34 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
     >
       <Image
         fadeIn
+        opacity={type === "unavailable" ? 0.4 : 1}
         height={{base: 48, sm: 48}}
         rounded="md"
         src={image || "/assets/fallback.jpg"}
         width="100%"
       />
+      <Flex
+        visibility={type === "unavailable" ? "visible" : "hidden"}
+        position="absolute"
+        width="100%"
+        paddingTop={20}
+        justifyContent='space-evenly'
+        flexWrap='wrap'
+      >
+        <Box
+        backgroundColor= "black"
+        color= "white"
+        display= "Flex"
+        alignItems= 'center'
+        justifyContent= 'center'
+        textAlign= 'center'
+        paddingX={2}
+        fontSize="sm"
+        fontWeight= "900"
+        >
+          AGOTADO
+        </Box>
+      </Flex>
       <Box
         display="flex"
         flex={1}
@@ -87,7 +110,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         )}
         {type === "unavailable" && (
           <Text color="yellow.500" fontSize="md" fontWeight={900} lineHeight={1}>
-            Sin stock
+            Consultar Stock
           </Text>
         )}
         {type === "variant" && (

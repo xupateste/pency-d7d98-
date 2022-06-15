@@ -18,6 +18,7 @@ import {useAnalytics} from "~/analytics/hooks";
 import Textarea from "~/ui/inputs/Textarea";
 import FormControl from "~/ui/form/FormControl";
 import {useTenant} from "~/tenant/hooks";
+import Link from "~/ui/controls/Link";
 import Button from "~/ui/controls/Button";
 
 interface Props extends Omit<IDrawer, "children"> {
@@ -174,6 +175,24 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                       >
                         {product.description}
                       </TruncatedText>
+                    )}
+                    {product.type === "unavailable" && (
+                      <Text
+                        backgroundColor= "#ebf8ff"
+                        borderWidth="1px"
+                        fontSize="md"
+                        whiteSpace="pre-line"
+                      >
+                        Producto sin Stock <br/>
+                        <Link
+                          isExternal
+                          fontWeight={900}
+                          href={`https://wa.me/51930240108?text=Hola! cuando estará disponible nuevamente el producto: ${product.title} (${product.code})`}
+                          lineHeight="normal"
+                        >
+                          👉 Consultar Disponibilidad
+                        </Link>
+                      </Text>
                     )}
                   </Stack>
                   {product.options?.length ? form : null}
