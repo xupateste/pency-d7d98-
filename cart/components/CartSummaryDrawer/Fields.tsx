@@ -75,19 +75,21 @@ const Fields: React.FC<Props> = ({fields, items, onSubmit, onClose, onPrevious})
             <Stack marginTop={20} spacing={6}>
               <DrawerTitle>Listo!<br/>Completa tu Pedido<br/>Y Envíalo por WhatsApp 🚀</DrawerTitle>
               {form}
-              <SimpleGrid columns={2} marginTop={6}>
-                <Box>
-                  <Text fontWeight={900}>Subotal</Text>
-                  <Text>{p(total)} ({count} Items) </Text>
+              <Box p={4} background="#ebf8ff" borderRadius="lg" marginTop={5} borderWidth="1px">
+                <SimpleGrid columns={2}>
+                  <Box>
+                    <Text fontWeight={900}>Subotal</Text>
+                    <Text>{p(total)} ({count} Items) </Text>
+                  </Box>
+                  <Box>
+                    <Text fontWeight={900}>Envío</Text>
+                    <Text>Pago en Destino</Text>
+                  </Box>
+                </SimpleGrid>
+                <Box marginTop={4}>
+                  <Text fontWeight={900}>Bonificaciones y Descuentos</Text>
+                  <Text>[...] Consultar en el siguiente paso</Text>
                 </Box>
-                <Box>
-                  <Text fontWeight={900}>Envío</Text>
-                  <Text>Pago en Destino</Text>
-                </Box>
-              </SimpleGrid>
-              <Box>
-                <Text fontWeight={900}>Bonificaciones y Descuentos</Text>
-                <Text>[...] Consultar en el siguiente paso</Text>
               </Box>
               <Box>
                 <Text>*Desde la primera compra nuestros clientes reciben nuestro agradecimiento mediante bonificaciones y descuentos de acuerdo a su antigüedad con nosotros y estos beneficios crecen :)</Text>
