@@ -182,15 +182,16 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                         borderWidth="1px"
                         fontSize="md"
                         whiteSpace="pre-line"
+                        p={4}
                       >
-                        Producto sin Stock <br/>
+                        El Producto se agotó rapidamente <br/>
                         <Link
                           isExternal
                           fontWeight={900}
-                          href={`https://wa.me/51930240108?text=Hola! cuando estará disponible nuevamente el producto: ${product.title} (${product.code})`}
+                          href={`https://wa.me/51930240108?text=Hola Ferrisur! Avísame cuando vuelva a estar disponible: ${product.title} (${product.code})`}
                           lineHeight="normal"
                         >
-                          👉 Consultar Disponibilidad
+                          👉 Avísame cuando esté disponible
                         </Link>
                       </Text>
                     )}

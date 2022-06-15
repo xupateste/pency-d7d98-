@@ -89,14 +89,14 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         >
           {title}
         </Text>
-        {type === "available" && (
+        {/*type === "available" &&(
           <Stack isInline alignItems="center">
             <Text color="green.500" fontSize="lg" fontWeight={600} lineHeight={1}>
               {p(price)}
             </Text>
           </Stack>
-        )}
-        {type === "promotional" && (
+        )*/}
+        {/*type === "promotional" && */(
           <Stack isInline alignItems="center">
             <Text color="green.500" fontSize="lg" fontWeight={600} lineHeight={1}>
               {p(price)}
@@ -108,21 +108,21 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
             )}
           </Stack>
         )}
-        {type === "unavailable" && (
+        {/*type === "unavailable" && (
           <Text color="yellow.500" fontSize="md" fontWeight={900} lineHeight={1}>
             Consultar Stock
           </Text>
-        )}
+        )*/}
         {type === "variant" && (
           <Text color="green.500" fontSize="sm" fontWeight={500} lineHeight={1}>
             {min === max ? p(min) : p(min)} ~ {p(max)}
           </Text>
         )}
-        {type === "ask" && (
+        {/*type === "ask" && (
           <Text color="green.500" fontSize="sm" fontWeight={500} lineHeight={1}>
             A consultar
           </Text>
-        )}
+        )*/}
       </Box>
     </Flex>
   );
