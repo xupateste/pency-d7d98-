@@ -9,6 +9,8 @@ import {DrawerTitle, DrawerBody, DrawerFooter} from "~/ui/controls/Drawer";
 import Button from "~/ui/controls/Button";
 import {useTranslation, usePrice} from "~/i18n/hooks";
 import {getCount, getTotal, getFormattedPrice} from "~/cart/selectors";
+
+import {formatPrice} from "~/i18n/selectors";
 import Stepper from "~/ui/inputs/Stepper";
 import {getVariantsString} from "~/product/selectors";
 import CrossIcon from "~/ui/icons/Cross";
@@ -122,10 +124,31 @@ const Overview: React.FC<Props> = ({
       </DrawerBody>
       <DrawerFooter borderTopColor="gray.100" borderTopWidth={1} marginTop={2}>
         <Stack spacing={4} width="100%">
-          <Flex alignItems="center" fontSize="lg" fontWeight={500} justifyContent="space-between">
+          <Flex alignItems="center" fontSize="lg" fontWeight={500} justifyContent="space-between" marginBottom="0">
             <Text>{t("cart.estimatedTotal")}</Text>
             <Text>{p(total)}</Text>
           </Flex>
+          {(total < 500 &&
+              <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ffe164">
+                <Text textAlign="center" m="auto">Tip: Invierte {formatPrice(500 - total)} más para obtener 2% Dcto.</Text>
+              </Flex>)
+          || (total < 1500 &&
+              <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
+                <Text textAlign="center" m="auto">¡Felicitaciones ya tienes 2% de Dcto. 🤝!<br/>2do Tip: Invierte {formatPrice(1500 - total)} más y obtén 3% Dcto.</Text>
+              </Flex>)
+          || (total < 3200 &&
+              <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
+                <Text textAlign="center" m="auto">¡Genial ya tienes 3% de Dcto. 💪!<br/>3er Tip: Invierte {formatPrice(3200 - total)} más y obtén 4% Dcto.</Text>
+              </Flex>)
+          || (total < 6000 &&
+              <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
+                <Text textAlign="center" m="auto">¡Vamos ya tienes 4% de Dcto. 🙌!<br/>4to Tip: Invierte {formatPrice(6000 - total)} más y obtén 5% Dcto.</Text>
+              </Flex>)
+          ||
+              <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
+                <Text textAlign="center" m="auto">¡Felicitaciones! ya tienes el mejor descuento posible</Text>
+              </Flex>
+          }
           {hasNextStep ? (
             <Button boxShadow="lg" size="lg" variantColor="primary" onClick={handleNext}>
               ➡ {t("common.next")} ➡
