@@ -76,20 +76,30 @@ const Fields: React.FC<Props> = ({fields, items, onSubmit, onClose, onPrevious})
               <DrawerTitle>Listo!<br/>Completa tu Pedido<br/>Y Envíalo por WhatsApp 🚀</DrawerTitle>
               {form}
               <Box p={4} background="#ebf8ff" borderRadius="lg" marginTop={5} borderWidth="1px">
-                <SimpleGrid columns={2}>
+                <SimpleGrid columns={1} spacing='5px' color="#718096" fontSize="0.875rem">
                   <Box>
-                    <Text fontWeight={900}>Subotal</Text>
-                    <Text>{p(total)} ({count} Items) </Text>
+                    <Text fontWeight={900}>Subotal:</Text>
+                    <Text mt={-1}>{p(total)} - {count > 1 ? count+" Items" : count+" Item"}  </Text>
                   </Box>
                   <Box>
-                    <Text fontWeight={900}>Envío</Text>
-                    <Text>Pago en Destino</Text>
+                    <Text fontWeight={900}>Envío:</Text>
+                    <Text mt={-1}>Pago en Destino</Text>
+                  </Box>
+                  <Box>
+                    <Text fontWeight={900}>Bonificaciones y Descuentos:</Text>
+                    {(total < 500 &&
+                        <Text mt={-1}>[...] Consultar en el siguiente paso</Text>)
+                    || (total < 1500 &&
+                        <Text mt={-1}>2% Dcto - ¡Estas ahorrando {p(total*0.02)}!</Text>)
+                    || (total < 3200 &&
+                        <Text mt={-1}>3% Dcto - ¡Estas ahorrando {p(total*0.03)}!</Text>)
+                    || (total < 6000 &&
+                        <Text mt={-1}>4% Dcto - ¡Estas ahorrando {p(total*0.04)}!</Text>)
+                    ||
+                        <Text mt={-1}>5% Dcto - ¡Estas ahorrando {p(total*0.05)}!</Text>
+                    }
                   </Box>
                 </SimpleGrid>
-                <Box marginTop={4}>
-                  <Text fontWeight={900}>Bonificaciones y Descuentos</Text>
-                  <Text>[...] Consultar en el siguiente paso</Text>
-                </Box>
               </Box>
               <Box>
                 <Text>*Desde la primera compra nuestros clientes reciben nuestro agradecimiento mediante bonificaciones y descuentos de acuerdo a su antigüedad con nosotros y estos beneficios crecen :)</Text>
