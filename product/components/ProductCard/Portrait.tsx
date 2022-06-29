@@ -6,6 +6,7 @@ import {Product} from "~/product/types";
 import {usePrice} from "~/i18n/hooks";
 import {getVariantsPriceRange} from "~/product/selectors";
 
+
 interface Props extends Omit<FlexProps, "onClick"> {
   product: Product;
   onClick?: (product: Product) => void;
@@ -36,6 +37,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
       rounded="md"
       transition="transform 0.2s"
       onClick={handleClick}
+      marginBottom={2}
       {...props}
     >
       <Image
@@ -80,7 +82,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
       >
         <Text
           display="block"
-          fontSize="sm"
+          fontSize={{base: "sm", sm: "sm"}}
           textTransform="uppercase"
           fontWeight={500}
           lineHeight="normal"

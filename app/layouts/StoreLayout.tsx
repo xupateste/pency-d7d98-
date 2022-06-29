@@ -28,7 +28,7 @@ const StoreLayout: React.FC<Props> = ({tenant, product, category, children}) => 
         * {
           letter-spacing: -0.2px;
           touch-action: manipulation;
-          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+          font-family: "Roboto", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
             "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
         }
       `}
