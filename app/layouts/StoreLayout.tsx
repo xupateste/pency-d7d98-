@@ -41,7 +41,7 @@ const StoreLayout: React.FC<Props> = ({tenant, product, category, children}) => 
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
         rel="stylesheet"
       />
-      <title>{/*tenant.title || category */ "FERRISUR - Tu Distribuidor Ferretero de Confianza"}</title>
+      <title>{/*tenant.title || category */ "Tu Distribuidor Ferretero de Confianza - FERRISUR"}</title>
       <meta content={tenant.color || META.theme} name="theme-color" />
       <meta content={tenant.description || META.description} name="description" />
       <meta content={tenant.keywords + " "+ category|| META.keywords} name="keywords" />

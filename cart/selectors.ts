@@ -147,6 +147,66 @@ function _getHeader() : string {
   )
 }
 
+function _getDiscount(stotal) : string {
+  switch(true) {
+    case (stotal < 500):
+      return (
+        ""
+        );
+    case (stotal < 1500):
+      return (
+        "\n" +
+        " Descuento" +
+        "\n" +
+        " 2% Dcto ¡Ahorras "+formatPrice(stotal*0.02)+"!" +
+        "\n" +
+        "-----------------------------" 
+        );
+    case (stotal < 3200):
+      return (
+        "\n" +
+        " Descuento" +
+        "\n" +
+        " 3% Dcto ¡Ahorras "+formatPrice(stotal*0.03)+"!" +
+        "\n" +
+        "-----------------------------"
+        );
+    case (stotal < 6000):
+      return (
+        "\n" +
+        " Descuento" +
+        "\n" +
+        " 4% Dcto ¡Ahorras "+formatPrice(stotal*0.04)+"!" +
+        "\n" +
+        "-----------------------------"
+        );
+    default:
+      return (
+        "\n" +
+        " Descuento" +
+        "\n" +
+        " 5% Dcto ¡Ahorras "+formatPrice(stotal*0.05)+"!" +
+        "\n" +
+        "-----------------------------"
+        );
+  }
+}
+function _getTotal(total) : string {
+  switch(true) {
+    case (total < 500):
+      return (formatPrice(total));
+    case (total < 1500):
+      return (formatPrice(total*0.98));
+    case (total < 3200):
+      return (formatPrice(total*0.97));
+    case (total < 6000):
+      return (formatPrice(total*0.96));
+    default:
+      return (formatPrice(total*0.95));
+  }
+}
+
+
 export function getMessage(
   items: CartItem[],
   orderId: string,
@@ -166,16 +226,18 @@ export function getMessage(
     "\n" +
     "-----------------------------" +
     "\n" +
-    ` Total` +
+    ` Subtotal` +
     "\n" +
     ` ${getCount(items)} Item(s) a ${formatPrice(getTotal(items))}`.substring(0, 28) +
     "\n" +
     "-----------------------------" +
+    _getDiscount(getTotal(items)) + 
     "\`\`\`" +
     "\n\n" +
     "*Monto Total A Pagar*" + 
     "\n" +
-    `*${formatPrice(getTotal(items))}*` +
+    /*`*${formatPrice(getTotal(items))}*` +*/
+    "*"+ _getTotal(getTotal(items)) +"*" +
     "\`\`\`" +
     //(fields ? "\n\n" + _getFields(fields) : "\n").substring(0, 27) +
     "\n\n" +

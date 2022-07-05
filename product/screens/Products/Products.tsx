@@ -113,7 +113,55 @@ const ProductsScreen: React.FC = () => {
       {shallow: true},
     );
   }
-  function handleCategoryClick() {
+  function handleAEClick() {
+    setTimeout(() => {
+      document
+        .querySelector(`[id="ACCESORIOS ELECTRICOS"]`)
+        ?.scrollIntoView()
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }, 0)
+  }
+  function handleHERRClick() {
+    setTimeout(() => {
+      document
+        .querySelector(`[id="HERRAMIENTAS"]`)
+        ?.scrollIntoView()
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }, 0)
+  }
+  function handleGATUClick() {
+    setTimeout(() => {
+      document
+        .querySelector(`[id="HERRAMIENTAS"]`)
+        ?.scrollIntoView()
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }, 0)
+  }
+  function handleLIPGClick() {
+    setTimeout(() => {
+      document
+        .querySelector(`[id="HERRAMIENTAS"]`)
+        ?.scrollIntoView()
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }, 0)
+  }
+  function handleCHAClick() {
     setTimeout(() => {
       document
         .querySelector(`[id="CHAPERIA"]`)
@@ -125,6 +173,19 @@ const ProductsScreen: React.FC = () => {
       }
     }, 0)
   }
+  function handleHEPEClick() {
+    setTimeout(() => {
+      document
+        .querySelector(`[id="CHAPERIA"]`)
+        ?.scrollIntoView()
+      var scrolledY = window.scrollY;
+      if(scrolledY){
+        //window.scroll(0, scrolledY - 60);
+        window.scrollTo({ top: scrolledY - 60, behavior: 'smooth' });
+      }
+    }, 0)
+  }
+
 
   return (
     <>
@@ -145,7 +206,7 @@ const ProductsScreen: React.FC = () => {
                 >
                   {/*highlight*/}
                   <SimpleGrid columns={[2, 3, 6]} spacing="20px" marginBottom={2}>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleAEClick}>
                       <Image fadeIn src={"/assets/ae.png"} h='67%'/>
                       <Text
                         textTransform="uppercase"
@@ -157,7 +218,7 @@ const ProductsScreen: React.FC = () => {
                         ACCESORIOS ELECTRICOS
                       </Text>
                     </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleHERRClick}>
                       <Image fadeIn src={"/assets/herr.png"} h='67%'/>
                       <Text
                         textTransform="uppercase"
@@ -169,7 +230,7 @@ const ProductsScreen: React.FC = () => {
                         HERRAMIENTAS
                       </Text>
                     </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleGATUClick}>
                       <Image fadeIn src={"/assets/gatu.png"} h='67%'/>
                       <Text
                         textTransform="uppercase"
@@ -181,7 +242,7 @@ const ProductsScreen: React.FC = () => {
                         GASFITERIA Y TUBERIA
                       </Text>
                     </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleLIPGClick}>
                       <Image fadeIn src={"/assets/lipg.png"} h='67%'/>
                       <Text
                         textTransform="uppercase"
@@ -193,7 +254,7 @@ const ProductsScreen: React.FC = () => {
                         LIMPIEZA Y PLAGICIDAS
                       </Text>
                     </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCHAClick}>
                       <Image fadeIn src={"/assets/cha.png"} h='67%'/>
                       <Text
                         textTransform="uppercase"
@@ -205,7 +266,7 @@ const ProductsScreen: React.FC = () => {
                         CHAPERIA
                       </Text>
                     </Box>
-                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleCategoryClick}>
+                    <Box h='140px' bg="#ebf8ff" borderWidth="1px" p={3} onClick={handleHEPEClick }>
                       <Image fadeIn src={"/assets/hepe.png"} h='67%'/>
                       <Text
                         textTransform="uppercase"

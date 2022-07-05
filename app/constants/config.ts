@@ -5,10 +5,10 @@ export const META = {
   title: "Tu tienda online",
   description: "Ahorrá tiempo y dinero aceptando pedidos online",
   appleicon: "/logo192.jpg",
-  keywords: "tienda, online, fácil, delivery, compra, venta",
+  keywords: "ferreteria, distribuidora, juliaca, san roman, puno, ferreteria online",
   author: "Fency",
   twitter: "@",
-  url: "https://google.com",
+  url: "https://ferrisur.vercel.app",
   banner: {
     url: "/og-image.jpg",
     format: "image/jpeg",

@@ -130,7 +130,7 @@ const Overview: React.FC<Props> = ({
           </Flex>
           {(total < 500 &&
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ffe164">
-                <Text textAlign="center" m="auto">Tip: Invierte {formatPrice(500 - total)} más para obtener 2% Dcto.</Text>
+                <Text textAlign="center" m="auto">Tip: Invierte {formatPrice(500 - total)} más y obtén 2% Dcto.</Text>
               </Flex>)
           || (total < 1500 &&
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
