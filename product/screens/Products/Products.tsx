@@ -140,7 +140,7 @@ const ProductsScreen: React.FC = () => {
   function handleGATUClick() {
     setTimeout(() => {
       document
-        .querySelector(`[id="HERRAMIENTAS"]`)
+        .querySelector(`[id="GASFITERIA Y TUBERIA"]`)
         ?.scrollIntoView()
       var scrolledY = window.scrollY;
       if(scrolledY){
@@ -152,7 +152,7 @@ const ProductsScreen: React.FC = () => {
   function handleLIPGClick() {
     setTimeout(() => {
       document
-        .querySelector(`[id="HERRAMIENTAS"]`)
+        .querySelector(`[id="LIMPIEZA Y PLAGICIDAS"]`)
         ?.scrollIntoView()
       var scrolledY = window.scrollY;
       if(scrolledY){
@@ -176,7 +176,7 @@ const ProductsScreen: React.FC = () => {
   function handleHEPEClick() {
     setTimeout(() => {
       document
-        .querySelector(`[id="CHAPERIA"]`)
+        .querySelector(`[id="HERRERIA Y PERNERIA"]`)
         ?.scrollIntoView()
       var scrolledY = window.scrollY;
       if(scrolledY){
@@ -282,7 +282,8 @@ const ProductsScreen: React.FC = () => {
                 </Box>
               )}
               <Box
-                backgroundColor="gray.50"
+                backgroundColor="#ebf8ff"
+                borderWidth={{base: "0px", sm: "1px"}}
                 data-test-id="filters"
                 marginBottom={{base: 5, sm: 10}}
                 paddingX={4}
