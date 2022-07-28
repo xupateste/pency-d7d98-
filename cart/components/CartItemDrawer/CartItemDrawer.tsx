@@ -20,6 +20,8 @@ import FormControl from "~/ui/form/FormControl";
 import {useTenant} from "~/tenant/hooks";
 import Link from "~/ui/controls/Link";
 import Button from "~/ui/controls/Button";
+import {usePrice} from "~/i18n/hooks";
+
 
 interface Props extends Omit<IDrawer, "children"> {
   onSubmit: (product: Product, options: Variant[], count: number, note: string) => void;
@@ -29,6 +31,7 @@ interface Props extends Omit<IDrawer, "children"> {
 const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props}) => {
   const [count, setCount] = React.useState(1);
   const [note, setNote] = React.useState("");
+  const p = usePrice();
   const t = useTranslation();
   const log = useAnalytics();
   const toast = useToast();
@@ -173,7 +176,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                         limit={280}
                         whiteSpace="pre-line"
                       >
-                        {product.description}
+                        {`Codigo: ${product.code} - PU: ${p(product.price)}`}
                       </TruncatedText>
                     )}
                     {product.type === "unavailable" && (
