@@ -42,12 +42,23 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
     >
       <Image
         fadeIn
-        opacity={type === "unavailable" ? 0.4 : 1}
         height={{base: 48, sm: 48}}
         rounded="md"
         src={image || "/assets/fallback.jpg"}
         width="100%"
       />
+      <Flex
+        visibility={type === "unavailable" ? "visible" : "hidden"}
+        backgroundColor= "white"
+        opacity={type === "unavailable" ? 0.5 : 0}
+        position="absolute"
+        width="100%"
+        height="100%"
+        paddingTop={20}
+        justifyContent='space-evenly'
+        flexWrap='wrap'
+      >
+      </Flex>
       <Flex
         visibility={type === "unavailable" ? "visible" : "hidden"}
         position="absolute"
@@ -68,6 +79,20 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         fontWeight= "900"
         >
           AGOTADO
+        </Box>
+        <Box
+        backgroundColor= "white"
+        color= "black"
+        width= "100%"
+        display= "Flex"
+        alignItems= 'center'
+        justifyContent= 'center'
+        textAlign= 'center'
+        marginX="10%"
+        fontSize="xs"
+        fontWeight= "900"
+        >
+          STOCK EN CAMINO
         </Box>
       </Flex>
       <Box
