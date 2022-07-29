@@ -169,7 +169,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     >
                       {product.title}
                     </Text>
-                    {product.description && (
+                    {product.type != "unavailable" && (
                       <TruncatedText
                         color="gray.500"
                         fontSize="md"
@@ -185,25 +185,27 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                         borderWidth="1px"
                         fontSize="md"
                         whiteSpace="pre-line"
-                        p={4}
+                        p={3}
                       >
-                        El Producto se agotó rapidamente <br/>
+                        Producto Agotado. Stock Pronto<br/>
                         <Link
                           isExternal
                           fontWeight={900}
-                          href={`https://wa.me/51930240108?text=Hola Ferrisur! Avísame cuando vuelva a estar disponible: ${product.title} (${product.code})`}
+                          href={`https://wa.me/51930240108?text=Hola Ferrisur! Quisiera reservar el Producto: ${product.title} (${product.code})`}
                           lineHeight="normal"
                         >
-                          👉 Avísame cuando esté disponible
+                          👉 Quiero reservar este Producto
                         </Link>
                       </Text>
                     )}
                   </Stack>
                   {product.options?.length ? form : null}
-                  <Flex alignItems="center" justifyContent="space-between">
-                    <FormLabel padding={0}>{t("common.count")}</FormLabel>
-                    <Stepper min={1} value={count} onChange={setCount} />
-                  </Flex>
+                  {product.type != "unavailable" && (
+                    <Flex alignItems="center" justifyContent="space-between">
+                      <FormLabel padding={0}>{t("common.count")}</FormLabel>
+                      <Stepper min={1} value={count} onChange={setCount} />
+                    </Flex>
+                  )}
                   {flags.includes("note") && (
                     <FormControl
                       help={t("cartItemDrawer.comments.placeholder")}

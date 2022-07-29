@@ -38,7 +38,7 @@ const AdminScreen: React.FC = () => {
         <Content paddingX={4}>
           <Flex alignItems="center" justifyContent="space-between" width="100%">
             <Stack isInline alignItems="center" spacing={2}>
-              <Image alt="Pency" src="/logo.svg" />
+              <Image alt="Ferrisur" src="/logo.svg" />
               <Link
                 _hover={{
                   textDecoration: "none",

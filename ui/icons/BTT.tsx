@@ -5,23 +5,10 @@ interface Props extends Omit<BoxProps, "size"> {
   size?: number;
 }
 
-const ArrowLeftIcon: React.FC<Props> = ({size = 40, ...props}) => {
+const ArrowLeftIcon: React.FC<Props> = ({size = 70, ...props}) => {
   return (
     <Box {...props}>
-      <svg
-        className="feather feather-arrow-left"
-        height={size}
-        stroke="currentColor"
-        fill="primary"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="0"
-        viewBox="0 0 14 14"
-        width={size}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M 11.286 6.057 L 10.086 4.857 L 7.857 7.148 L 7.857 1 L 6.143 1 L 6.143 7.148 L 3.914 4.857 L 2.714 6.057 L 7 10.429 L 11.286 6.057 Z M 1 11.286 L 1 13 L 13 13 L 13 11.286 L 1 11.286 Z" transform="matrix(-1, 0, 0, -1, 14, 14)"/>
-      </svg>
+      <svg fill="#2a69ac" stroke="white" stroke-width="30" height={size} viewBox="40 40 700 700" xmlns="http://www.w3.org/2000/svg"><title>ionicons-v5-b</title><path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm96,270.63-96-96-96,96L137.37,296,256,177.37,374.63,296Z"/></svg>
     </Box>
   );
 };

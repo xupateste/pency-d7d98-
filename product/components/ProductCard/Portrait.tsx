@@ -92,7 +92,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         fontSize="xs"
         fontWeight= "900"
         >
-          STOCK EN CAMINO
+          STOCK PRONTO
         </Box>
       </Flex>
       <Box
