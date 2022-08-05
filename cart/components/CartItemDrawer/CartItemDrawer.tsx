@@ -9,7 +9,7 @@ import ProductVariantForm from "~/product/forms/ProductVariantForm";
 import ArrowLeftIcon from "~/ui/icons/ArrowLeft";
 import Stepper from "~/ui/inputs/Stepper";
 import FormLabel from "~/ui/form/FormLabel";
-import TruncatedText from "~/ui/feedback/ToggleableText";
+//import TruncatedText from "~/ui/feedback/ToggleableText";
 import ToggleableImage from "~/ui/feedback/ToggleableImage";
 import {useTranslation} from "~/i18n/hooks";
 import {useToast} from "~/hooks/toast";
@@ -170,14 +170,31 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                       {product.title}
                     </Text>
                     {product.type != "unavailable" && (
-                      <TruncatedText
-                        color="gray.500"
-                        fontSize="md"
-                        limit={280}
-                        whiteSpace="pre-line"
-                      >
-                        {`Codigo: ${product.code} - PU: ${p(product.price)}`}
-                      </TruncatedText>
+                      <Stack>
+                        <Text
+                          color="gray.500"
+                          fontSize="md"
+                          whiteSpace="pre-line"
+                        >
+                          {`Codigo: ${product.code}`}
+                        </Text>
+                        <Text
+                          color="gray.500"
+                          fontSize="md"
+                        >
+                          {`P.Unit: ${p(product.price)} - `}
+                          <Text
+                          display="inline"
+                          color="gray.500"
+                          fontSize="md"
+                          textDecoration="line-through"
+                        >
+                          {`${p(product.originalPrice)}`}
+                          
+                        </Text>
+                        </Text>
+                        
+                      </Stack>
                     )}
                     {product.type === "unavailable" && (
                       <Text
