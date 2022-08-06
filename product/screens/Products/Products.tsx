@@ -6,7 +6,7 @@ import {useRouter} from "next/router";
 import ProductCard from "../../components/ProductCard";
 import {useFilteredProducts, useProducts} from "../../hooks";
 import ProductsGrid from "../../components/ProductsGrid";
-import ProductsCarousel from "../../components/ProductsCarousel";
+//import ProductsCarousel from "../../components/ProductsCarousel";
 
 import Onboarding from "./Onboarding";
 
@@ -15,7 +15,7 @@ import Image from "~/ui/feedback/Image";
 import {useCart} from "~/cart/hooks";
 import {groupBy} from "~/selectors/group";
 import CartSummaryDrawer from "~/cart/components/CartSummaryDrawer";
-import {filterBy} from "~/selectors/filter";
+//import {filterBy} from "~/selectors/filter";
 import {useTenant} from "~/tenant/hooks";
 import {useTranslation} from "~/i18n/hooks";
 import TenantHeader from "~/tenant/components/TenantHeader";
@@ -42,7 +42,7 @@ const ProductsScreen: React.FC = () => {
     product,
   ]);
 
-  const featuredProducts = filterBy(products, {featured: true});
+  //const featuredProducts = filterBy(products, {featured: true});
   const productsByCategory = groupBy(products, (product) => product.category);
 
   // added
@@ -300,9 +300,9 @@ const ProductsScreen: React.FC = () => {
                 <Stack margin="auto" spacing={5} width="100%">
                   {Boolean(products.length) ? (
                     <Stack spacing={{base: 5, sm: 10}} width="100%">
-                      {Boolean(featuredProducts.length) && (
+                      {/*Boolean(featuredProducts.length) && (
                         <ProductsCarousel title={t("ITEMS POR AGOTARSE")} zIndex={0}>
-                          {featuredProducts.map((product) => (
+                          //{featuredProducts.map((product) => (
                             <ProductCard
                               key={product.id}
                               isRaised
@@ -313,7 +313,7 @@ const ProductsScreen: React.FC = () => {
                             />
                           ))}
                         </ProductsCarousel>
-                      )}
+                      )*/}
                       {productsByCategory.map(([category, products]) => {
                         return (
                           <PseudoBox key={category} as="section" id={category}>
