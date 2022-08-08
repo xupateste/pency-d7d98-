@@ -45,6 +45,12 @@ const Overview: React.FC<Props> = ({
   const total = getTotal(items);  
   //const {image, title, price, originalPrice, description, type} = product; //added
 
+  function formattedImg(image) {
+    const position = image.indexOf('/upload/') + 8;
+    const format = "w_90,f_auto,q_auto/";
+    return [image.slice(0,position),format,image.slice(position)].join('');
+  }
+  
   function handleSubmit() {
     toggleLoading(true);
 
@@ -92,7 +98,7 @@ const Overview: React.FC<Props> = ({
                       fadeIn
                       height={{base: 24, sm: 24}}
                       rounded="md"
-                      src={products.find((_product) => _product.id === item.product.id).image || "/assets/fallback.jpg"}
+                      src={formattedImg(products.find((_product) => _product.id === item.product.id).image) || "/assets/fallback.jpg"}
                       width={{base: 24, sm: 24}}
                     />
                   </Flex>
