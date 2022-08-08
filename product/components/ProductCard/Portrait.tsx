@@ -18,6 +18,12 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
   const {image, title, price, originalPrice, type} = product;
   const [min, max] = getVariantsPriceRange(product.options);
 
+  function formattedImg(image) {
+    const position = image.indexOf('/upload/') + 8;
+    const format = "w_160,f_auto,q_auto/";
+    return [image.slice(0,position),format,image.slice(position)].join('');
+  }
+  
   function handleClick() {
     onClick && onClick(product);
   }
@@ -44,7 +50,8 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         fadeIn
         height={{base: 48, sm: 48}}
         rounded="md"
-        src={image || "/assets/fallback.jpg"}
+        //src={image || "/assets/fallback.jpg"}
+        src={image ? formattedImg(image) : "/assets/fallback.jpg"}
         width="100%"
       />
       <Flex
