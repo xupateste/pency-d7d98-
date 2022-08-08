@@ -40,6 +40,12 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
     prompt: Boolean(navigator?.share),
     clipboard: Boolean(navigator?.clipboard),
   };
+  
+  function formattedImg(image) {
+    const position = image.indexOf('/upload/') + 8;
+    const format = "w_360,f_auto,q_auto/";
+    return [image.slice(0,position),format,image.slice(position)].join('');
+  }
 
   function handleSubmit(options: Variant[]) {
     onSubmit(product, options, count, note);
@@ -150,7 +156,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     onClick={handleShare}
                   />
                 )}
-                {<ToggleableImage maxHeight="50vh" src={product.image || "/assets/fallback.jpg"} />}
+                {<ToggleableImage maxHeight="50vh" src={product.image ? formattedImg(product.image) : "/assets/fallback.jpg"} />}
                 <Stack
                   shouldWrapChildren
                   direction="column"
