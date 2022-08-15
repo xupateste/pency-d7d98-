@@ -383,8 +383,8 @@ const ProductsScreen: React.FC = () => {
           padding={4}
         >  
           <Stack w="100%" alignItems="center" spacing={1}>
-            <Text fontSize="sm">{'© 2022 FERRISUR DISTRIBUIDORA, Juliaca'}</Text>
-            <Text fontSize="sm">{'\n'}{'With ❤ by '} <Link href="https://wa.me/51930240108?text=Hola Chris!">Chris</Link></Text>
+            <Text fontSize="sm">{'Desde 2016, FERRISUR IMPORT SAC'}</Text>
+            <Text fontSize="sm">{'\n'}{'Es hecho en Juliaca, PE por '} <Link href="https://wa.me/51930240108?text=Hola Chris!">Chris</Link> {' & '} <Link href="https://wa.me/51951369666?text=Hola Liz!">Liz</Link></Text>
           </Stack>
         </Flex>
       </Content>
