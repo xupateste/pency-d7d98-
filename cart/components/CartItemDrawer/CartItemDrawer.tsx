@@ -214,7 +214,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                         <Link
                           isExternal
                           fontWeight={900}
-                          href={`https://wa.me/51930240108?text=Hola Ferrisur! Quisiera reservar el Producto: ${product.title} (${product.code})`}
+                          href={`https://wa.me/51935687208?text=Hola Ferrisur! Cómo podría reservar el Producto: ${product.title} (${product.code})`}
                           lineHeight="normal"
                         >
                           👉 Quiero reservar este Producto

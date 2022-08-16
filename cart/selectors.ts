@@ -142,7 +142,7 @@ function _getHeader() : string {
     "\n" +
     "Av. Modesto Borda 743 Juliaca" +
     "\n" +
-    "Whatsapp 930240108" +
+    "Whatsapp 935687208" +
     "\n\n"
   )
 }
@@ -151,7 +151,12 @@ function _getDiscount(stotal) : string {
   switch(true) {
     case (stotal < 500):
       return (
-        ""
+        "\n" +
+        " Descuento" +
+        "\n" +
+        " A consultar..." +
+        "\n" +
+        "-----------------------------" 
         );
     case (stotal < 1500):
       return (

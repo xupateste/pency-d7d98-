@@ -152,7 +152,7 @@ const Overview: React.FC<Props> = ({
               </Flex>)
           ||
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
-                <Text textAlign="center" m="auto">¡Felicitaciones! ya tienes el mejor descuento posible</Text>
+                <Text textAlign="center" m="auto">Tienes 5% de Dcto. 🎁!<br/>¡Felicitaciones! ya tienes el mejor descuento posible</Text>
               </Flex>
           }
           {hasNextStep ? (
