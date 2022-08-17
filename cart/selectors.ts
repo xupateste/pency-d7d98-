@@ -102,6 +102,15 @@ export function getFormattedPrice(item: CartItem): string {
 export function getCount(items: CartItem[]): number {
   return items.reduce((total, item) => total + item.count, 0);
 }
+
+function _getFields(fields: Field[]) {
+  if (!fields) return "";
+
+  return fields
+    .filter(({title, value}) => title && value)
+    .map(({title, value}) => `${value.length > 4 ? value.toUpperCase().substring(0, 4).concat('…') : value.toUpperCase() }`);
+}
+
 /*
 function _getFields(fields: Field[]) {
   if (!fields) return "";
@@ -218,12 +227,12 @@ export function getMessage(
   fields?: Field[],
   preference?: string,
 ): string {
-  console.log(fields);
+ // console.log(fields);
   console.log(preference);
   return (
     "\`\`\`\n" +
     _getHeader() +
-    `Pedido#  : ${orderId}` +
+    `Pedido#  : ${_getFields(fields)}-${orderId}` +
     "\n" +
     "-----------------------------" +
     "\n" +
@@ -258,5 +267,5 @@ export const getOrderId = (slug: ClientTenant["slug"]) => {
   shortId.characters("0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÑ");
 
   // Generate order id
-  return `${slug.slice(0, 3).toUpperCase()}-${shortId.generate().slice(0, 5).toUpperCase()}`;
+  return `${shortId.generate().slice(0, 4).toUpperCase()}`;
 };
