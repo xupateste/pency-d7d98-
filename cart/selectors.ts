@@ -161,9 +161,9 @@ function _getDiscount(stotal) : string {
     case (stotal < 500):
       return (
         "\n" +
-        " Descuento" +
+        " Descuentos" +
         "\n" +
-        " A consultar..." +
+        " A consultar por interno" +
         "\n" +
         "-----------------------------" 
         );
@@ -251,7 +251,7 @@ export function getMessage(
     "*Monto Total A Pagar*" + 
     "\n" +
     /*`*${formatPrice(getTotal(items))}*` +*/
-    "*"+ _getTotal(getTotal(items)) +"*" +
+    "*= "+ _getTotal(getTotal(items)) +"*" +
     "\`\`\`" +
     //(fields ? "\n\n" + _getFields(fields) : "\n").substring(0, 27) +
     "\n\n" +
