@@ -97,7 +97,7 @@ const CartProvider = ({children}: Props) => {
 
   async function checkout(fields?: Field[]) {
     // We generate an order id
-    const orderId = getOrderId(slug);
+    const orderId = getOrderId();
 
     // Log to analytics
     log.checkout(orderId, items);
