@@ -107,8 +107,8 @@ function _getFields(fields: Field[]) {
   if (!fields) return "";
 
   return fields
-    .filter(({title, value}) => title && value)
-    .map(({title, value}) => `${value.length > 4 ? value.toUpperCase().substring(0, 4).concat('…') : value.toUpperCase() }`);
+    .filter(({value}) => value)
+    .map(({value}) => `${value.length > 4 ? value.toUpperCase().substring(0, 4).concat('…') : value.toUpperCase() }`);
 }
 
 /*
