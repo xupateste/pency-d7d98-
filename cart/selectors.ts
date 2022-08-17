@@ -2,7 +2,7 @@ import shortId from "shortid";
 
 import {CartItem} from "./types";
 
-import {Field, ClientTenant} from "~/tenant/types";
+import {Field} from "~/tenant/types";
 import {getVariantsPrice} from "~/product/selectors";
 import {formatPrice} from "~/i18n/selectors";
 
@@ -262,7 +262,7 @@ export function getMessage(
   );
 }
 
-export const getOrderId = (slug: ClientTenant["slug"]) => {
+export const getOrderId = () => {
   // Set characters
   shortId.characters("0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÑ");
 
