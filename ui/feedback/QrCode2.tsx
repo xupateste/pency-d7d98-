@@ -14,14 +14,14 @@ const QrCode: React.FC<Props> = ({text, ...props}) => {
 
   function handleDownload() {
     // Convert string to svg
-    QRCode.toString(text, {version: 6})
+    QRCode.toString(text, {version: 5})
       // Save it
       .then((file) => download(`qr.svg`, file));
   }
 
   React.useEffect(() => {
     // Set qr on canvas
-    QRCode.toCanvas(canvas.current, text, {version: 6});
+    QRCode.toCanvas(canvas.current, text, {width: 325, version: 5});
   }, [text]);
 
   return <Box ref={canvas} as="canvas" cursor="pointer" onClick={handleDownload} {...props} />;
