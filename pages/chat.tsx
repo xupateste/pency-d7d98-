@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import QrCode from "~/ui/feedback/QrCode";
+import QrCode from "~/ui/feedback/QrCode2";
 import {
   Box,
   Text,
