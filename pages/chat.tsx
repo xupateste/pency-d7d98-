@@ -13,11 +13,11 @@ const chat = ({}) => {
   const [message, setMessage] = useState('');
 
   function formatWP(code) {
-    return 'https://wa.me/51930240108?text=Hola🤐 me acaban de registrar con código: '+code+'.';
+    return 'https://wa.me/51930240108?text=Buenos días🤩 registré mi Ferretería con código: '+code+'.';
   }
 
   const handleChange = event => {
-    setMessage(event.target.value.toUpperCase());
+    (""+event.target.value).length > 4 ? "" : setMessage(event.target.value.toUpperCase());
   };
 
   return (
@@ -53,7 +53,7 @@ const chat = ({}) => {
           Administradora
         </Text>
         <QrCode text={formatWP(message)}></QrCode>
-        <Input size="lg" placeholder='Código' onChange={handleChange} value={message} type="text" maxLength={4}/>
+        <Input size="lg" placeholder='Código' onChange={handleChange} value={message} type="text" maxLength={5}/>
       </Stack>
     </Box>
   );
