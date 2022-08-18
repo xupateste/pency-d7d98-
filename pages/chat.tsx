@@ -13,7 +13,7 @@ const chat = ({}) => {
   const [message, setMessage] = useState('');
 
   function formatWP(code) {
-    return 'https://wa.me/51930240108?text=Buenos días🤩 registré mi Ferretería con código: '+code+'.';
+    return 'https://wa.me/51930240108?text=Buen día🤩%0D%0AConfirmo mi registro ('+code+').';
   }
 
   const handleChange = event => {
