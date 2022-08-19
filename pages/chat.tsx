@@ -101,7 +101,7 @@ const chat = ({}) => {
           </Text>
           <QrCode mt={-5} text={formatWP(message)}></QrCode>
           <InputGroup zIndex={3} mt={-5} fontWeight="bold"  >
-            <InputLeftAddon color="gray.700" fontSize="4xl" fontWeight="bold"  children='#ID' />
+            <InputLeftAddon color="gray.500" fontSize="4xl" fontWeight="bold"  children='#ID' />
             <Input fontSize="4xl" fontWeight="bold"  placeholder='Ej.D16G' onChange={handleChange} value={message} type="text" maxLength={5} maxWidth={150}/>
           </InputGroup>
         </Stack>
