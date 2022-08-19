@@ -56,7 +56,7 @@ const chat = ({}) => {
   const [message, setMessage] = useState('');
 
   function formatWP(code) {
-    return 'https://wa.me/51935687208?text=Buenos días🤩%0D%0AConfirmo mi registro ('+code+').';
+    return 'https://wa.me/51935687208?text=Buenos días🤩 2% Dcto. 🎁%0D%0AConfirmo mi registro '+code;
   }
 
   const handleChange = event => {
