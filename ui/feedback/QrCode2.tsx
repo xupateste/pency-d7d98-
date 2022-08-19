@@ -21,7 +21,7 @@ const QrCode: React.FC<Props> = ({text, ...props}) => {
 
   React.useEffect(() => {
     // Set qr on canvas
-    QRCode.toCanvas(canvas.current, text, {width: 315, version: 5});
+    QRCode.toCanvas(canvas.current, text, {width: 315, version: 6});
   }, [text]);
 
   return <Box ref={canvas} as="canvas" cursor="pointer" {...props} />;
