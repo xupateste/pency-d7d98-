@@ -91,12 +91,12 @@ const chat = ({}) => {
           <Text color="gray.700" fontSize="lg" fontWeight="bold" lineHeight="80%" zIndex={2}>
             {"ADMINISTRADORA"}
           </Text>
-          <Text display="none" fontSize="3xl" fontWeight="bold" lineHeight="90%" marginTop={2} zIndex={2} alignItems="center" textAlign="center">
+          <Text fontSize="3xl" fontWeight="bold" lineHeight="90%" marginTop={2} zIndex={2} alignItems="center" textAlign="center">
             <Link color="green" isExternal href={`https://wa.me/51935687208`}>
               <SocialIcon aria-label="Enviar mensaje por WhatsApp" gridArea="links" icon={WhatsAppIcon} /> 935 687 208
             </Link>
           </Text>
-          <Text color="white" backgroundColor="#ff0000" p={1} fontSize="4xl" fontWeight="bold" lineHeight="90%" marginTop={2} zIndex={2} alignItems="center" textAlign="center">
+          <Text display="none" color="white" backgroundColor="#ff0000" p={1} fontSize="4xl" fontWeight="bold" lineHeight="90%" marginTop={2} zIndex={2} alignItems="center" textAlign="center">
             {"2% Dcto. 🎁"}
           </Text>
           <QrCode mt={-5} text={formatWP(message)}></QrCode>
