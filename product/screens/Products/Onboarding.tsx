@@ -25,7 +25,7 @@ const Onboarding = () => {
   if (!isShown) return null;
 
   return (
-    <Modal isCentered isOpen onClose={handleClose}>
+    <Modal isCentered onClose={handleClose}>
       <ModalOverlay backgroundColor="rgba(255,255,255,0.5)" zIndex={1400} />
       <ModalContent
         backgroundColor="transparent"
