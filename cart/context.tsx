@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import shortid from "shortid";
 import produce from "immer";
 
@@ -16,6 +16,8 @@ import {isMercadoPagoSelected} from "~/tenant/selectors";
 
 //import apiClient from "~/product/api/client"; //added
 
+import {useProducts} from "~/product/hooks";
+
 
 
 interface Props {
@@ -31,6 +33,28 @@ const CartProvider = ({children}: Props) => {
   const [cart, setCart] = React.useState<Cart>({});
   const items = React.useMemo(() => [].concat(...Object.values(cart)), [cart]);
 
+  const productsAll = useProducts();
+
+  useEffect(() => {
+    const cartItemsData:Cart = JSON.parse(localStorage.getItem('cartItems'))
+    if (cartItemsData) {
+      setCart(
+        produce(() => {
+          Object.keys(cartItemsData).forEach(function(key) {
+            if(productsAll.find((_product) => _product.id === cartItemsData[key].product.id)) {
+              cartItemsData[key].product.price = productsAll.find((_product) => _product.id === cartItemsData[key].product.id).price
+              add(cartItemsData[key].product, cartItemsData[key].variants, cartItemsData[key].count, cartItemsData[key].note)
+            }            
+          });
+        }),
+      );
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cart)) 
+  }, [cart])
+  
   function add(product: Product, variants: Variant[], count: number = 1, note: string = "") {
     log.addToCart(product, variants, count);
     
