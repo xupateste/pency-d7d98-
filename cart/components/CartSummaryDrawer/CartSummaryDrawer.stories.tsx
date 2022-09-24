@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import {action} from "@storybook/addon-actions";
 
 import mock from "../../mock";
@@ -22,6 +22,11 @@ export const open = () => (
     onClose={action("close")}
     onDecrease={action("decrease")}
     onIncrease={action("increase")}
+    onRemoveAll={() => {
+      action("close");
+
+      return Promise.resolve();
+    }}
   />
 );
 
@@ -45,7 +50,12 @@ export const manyItems = () => (
     onClose={action("close")}
     onDecrease={action("decrease")}
     onIncrease={action("increase")}
+    onRemoveAll={() => {
+      action("close");
+
+      return Promise.resolve();
+    }}
   />
-);
+);*/
 
 export default {title: "Cart/Components/CartSummaryDrawer"};

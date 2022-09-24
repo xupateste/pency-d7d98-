@@ -32,7 +32,7 @@ const ProductsScreen: React.FC = () => {
     query: {product, category},
     push,
   } = useRouter();
-  const {add, increase, decrease, items, checkout} = useCart();
+  const {add, increase, decrease, items, checkout, removeAll} = useCart();
   const t = useTranslation();
   const {isOpen: isCartOpen, onOpen: openCart, onClose: closeCart} = useDisclosure();
   const {products, filters} = useFilteredProducts((product) => product.type !== "hidden");
@@ -393,6 +393,7 @@ const ProductsScreen: React.FC = () => {
           fields={fields}
           items={items}
           onCheckout={checkout}
+          onRemoveAll={removeAll}
           onClose={closeCart}
           onDecrease={decrease}
           onIncrease={increase}

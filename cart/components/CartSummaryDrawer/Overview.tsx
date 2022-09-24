@@ -1,5 +1,12 @@
 import React from "react";
-import {Stack, Flex, Text} from "@chakra-ui/core";
+import {Stack, Flex, Text, useDisclosure, 
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogCloseButton,
+  AlertDialogOverlay} from "@chakra-ui/core";
 
 import {CartItem} from "../../types";
 
@@ -14,6 +21,7 @@ import {formatPrice} from "~/i18n/selectors";
 import Stepper from "~/ui/inputs/Stepper";
 import {getVariantsString} from "~/product/selectors";
 import CrossIcon from "~/ui/icons/Cross";
+import TrashIcon from "~/ui/icons/Trash";
 
 //added
 import {Product} from "~/product/types";
@@ -27,6 +35,7 @@ interface Props {
   onSubmit: () => Promise<void>;
   onClose: VoidFunction;
   hasNextStep: boolean;
+  onRemoveAll: () => Promise<void>;
 }
 
 const Overview: React.FC<Props> = ({
@@ -37,6 +46,7 @@ const Overview: React.FC<Props> = ({
   onClose,
   hasNextStep,
   products, //added
+  onRemoveAll, //added
 }) => {
   const [isLoading, toggleLoading] = React.useState(false);
   const t = useTranslation();
@@ -44,6 +54,8 @@ const Overview: React.FC<Props> = ({
   const count = getCount(items);
   const total = getTotal(items);  
   //const {image, title, price, originalPrice, description, type} = product; //added
+  const { isOpen, onOpen, onClose: onCloseReportModal } = useDisclosure()
+  const cancelRef = React.useRef();
 
   function formattedImg(image) {
     const position = image.indexOf('/upload/') + 8;
@@ -68,6 +80,15 @@ const Overview: React.FC<Props> = ({
   function handleIncrease(id: CartItem["id"]) {
     onIncrease(id);
   }
+  function handleOnOpenDialog() {
+    onOpen()
+  }
+
+  function handleOnRemoveAll() {
+    onRemoveAll();
+    onCloseReportModal();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   return (
     <>
@@ -85,7 +106,7 @@ const Overview: React.FC<Props> = ({
           top={0}
           onClick={onClose}
         />
-        <Stack marginTop={20} spacing={6}>
+        <Stack marginTop={10} spacing={6}>
           <DrawerTitle>
             {t("cart.yourOrder")} ({count})
           </DrawerTitle>
@@ -156,14 +177,48 @@ const Overview: React.FC<Props> = ({
               </Flex>
           }
           {hasNextStep ? (
-            <Button boxShadow="lg" size="lg" variantColor="primary" onClick={handleNext}>
-              ➡ {t("common.next")} ➡
-            </Button>
+            <>
+              <Button boxShadow="lg" size="lg" variantColor="primary" onClick={handleNext}>
+                ➡ {t("common.next")} ➡
+              </Button>
+              <Button size='xs' marginTop={2} onClick={handleOnOpenDialog} fontSize="sm" color="gray.500"  backgroundColor="#fff">
+                <TrashIcon
+                  color="gray.500"
+                  cursor="pointer"
+                  marginRight={1}
+                />
+                Vaciar "Mi pedido ({count})"
+              </Button>
+          </>
           ) : (
             <CheckoutButton isLoading={isLoading} onClick={handleSubmit} />
           )}
         </Stack>
       </DrawerFooter>
+      <AlertDialog
+        leastDestructiveRef={cancelRef}
+        isOpen={isOpen}
+        isCentered
+        onClose={onCloseReportModal}
+      >
+        <AlertDialogOverlay zIndex={8000}/>
+
+        <AlertDialogContent zIndex={8001}>
+          <AlertDialogHeader>Vaciar "Mi pedido ({count})"?</AlertDialogHeader>
+          <AlertDialogCloseButton />
+          <AlertDialogBody>
+            Deseas quitar todos los productos?<br/>{count} productos serán eliminados
+          </AlertDialogBody>
+          <AlertDialogFooter>
+            <Button onClick={onCloseReportModal}>
+              Cancelar
+            </Button>
+            <Button background='#E53E3E' _hover={{ bg: '#E53E3E' }} color='white' onClick={handleOnRemoveAll} ml={3}>
+              Vaciar
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 };

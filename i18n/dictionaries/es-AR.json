@@ -176,14 +176,14 @@
     }
   },
   "cart": {
-    "yourOrder": "Tu pedido",
+    "yourOrder": "Mi pedido",
     "completeOrder": "Completa tu pedido",
     "completeOnWhatsApp": "Completar pedido en WhatsApp",
     "estimatedTotal": "Total estimado"
   },
   "products": {
     "empty": "No se encontraron productos",
-    "review": "📝 Tu pedido",
+    "review": "📝 Mi pedido",
     "variants": {
       "countError": "Debes seleccionar {{count}} opciones",
       "emptyError": "Debes seleccionar al menos una opción"

@@ -83,6 +83,16 @@ const CartProvider = ({children}: Props) => {
     );
   }
 
+  async function removeAll(): Promise<void> {
+    return setCart(
+      produce((cart) => {
+        Object.keys(cart).forEach(function(key) {
+          delete cart[key];
+        });
+      }),
+    )
+  }
+
   function remove(id: CartItem["id"]) {
     if (!cart[id]) return;
 
@@ -166,7 +176,7 @@ const CartProvider = ({children}: Props) => {
   }
 
   const state: State = {items, cart};
-  const actions: Actions = {add, remove, checkout, increase, decrease};
+  const actions: Actions = {add, remove, checkout, increase, decrease, removeAll};
 
   return <CartContext.Provider value={{state, actions}}>{children}</CartContext.Provider>;
 };

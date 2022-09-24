@@ -1,5 +1,5 @@
 import React from "react";
-import {IDrawer, Text, Stack, Flex} from "@chakra-ui/core";
+import {IDrawer, Text, Stack, Flex, Box} from "@chakra-ui/core";
 
 import SummaryButton from "../SummaryButton";
 
@@ -156,7 +156,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     onClick={handleShare}
                   />
                 )}
-                {<ToggleableImage maxHeight="50vh" src={product.image ? formattedImg(product.image) : "/assets/fallback.jpg"} />}
+                {product.image && <ToggleableImage maxHeight="50vh" src={formattedImg(product.image)} />}
                 <Stack
                   shouldWrapChildren
                   direction="column"
@@ -184,21 +184,20 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                         >
                           {`Codigo: ${product.code}`}
                         </Text>
-                        <Text
+                        <Box
                           color="gray.500"
                           fontSize="md"
                         >
                           {`P.Unit: ${p(product.price)} - `}
                           <Text
-                          display="inline"
-                          color="gray.500"
-                          fontSize="md"
-                          textDecoration="line-through"
-                        >
-                          {`${p(product.originalPrice)}`}
-                          
-                        </Text>
-                        </Text>
+                            display="inline"
+                            color="gray.500"
+                            fontSize="md"
+                            textDecoration="line-through"
+                          >
+                            {`${p(product.originalPrice)}`}
+                          </Text>
+                        </Box>
                         
                       </Stack>
                     )}

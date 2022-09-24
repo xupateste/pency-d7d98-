@@ -11,7 +11,7 @@ const Image: React.FC<Props> = ({src, fadeIn, ...props}) => {
   const container = React.useRef();
 
   React.useLayoutEffect(() => {
-    let observer: IntersectionObserver;
+    /*let observer: IntersectionObserver;
 
     if (
       "IntersectionObserver" in window &&
@@ -37,7 +37,8 @@ const Image: React.FC<Props> = ({src, fadeIn, ...props}) => {
       setImage(src);
     }
 
-    return () => observer?.disconnect();
+    return () => observer?.disconnect();*/
+    setImage(src);
   }, [src]);
 
   return (

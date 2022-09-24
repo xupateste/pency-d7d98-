@@ -22,6 +22,7 @@ export interface Actions {
   decrease: (id: CartItem["id"]) => void;
   remove: (id: CartItem["id"]) => void;
   checkout: (fields?: Field[]) => Promise<void>;
+  removeAll: () => Promise<void>;
 }
 
 export interface Context {

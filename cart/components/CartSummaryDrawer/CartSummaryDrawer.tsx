@@ -22,6 +22,7 @@ interface Props extends Omit<IDrawer, "children"> {
   onDecrease: (id: CartItem["id"]) => void;
   onIncrease: (id: CartItem["id"]) => void;
   products: Product[]; //added
+  onRemoveAll: () => Promise<void>;
 }
 
 const CartSummaryDrawer: React.FC<Props> = ({
@@ -32,6 +33,7 @@ const CartSummaryDrawer: React.FC<Props> = ({
   onCheckout,
   onClose,
   products,
+  onRemoveAll,
 }) => {
   const [step, setStep] = React.useState("overview");
   const count = getCount(items);
@@ -92,6 +94,7 @@ const CartSummaryDrawer: React.FC<Props> = ({
           onIncrease={onIncrease}
           onSubmit={hasNextStep ? handleNext : handleCheckoutWithoutFields}
           products={products}
+          onRemoveAll={onRemoveAll}
         />
       )}
       {step === "fields" && (
