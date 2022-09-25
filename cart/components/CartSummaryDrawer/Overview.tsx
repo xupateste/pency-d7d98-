@@ -181,7 +181,7 @@ const Overview: React.FC<Props> = ({
               <Button boxShadow="lg" size="lg" variantColor="primary" onClick={handleNext}>
                 ➡ {t("common.next")} ➡
               </Button>
-              <Button size='xs' marginTop={2} onClick={handleOnOpenDialog} fontSize="sm" color="gray.500"  backgroundColor="#fff">
+              <Button size='xs' marginTop={2} onClick={handleOnOpenDialog} fontSize="sm" color="gray.500" bg=''>
                 <TrashIcon
                   color="gray.500"
                   cursor="pointer"
