@@ -182,7 +182,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                           fontWeight={700}
                           fontSize="2xl"
                         >
-                          {`P.Unit: ${p(product.price)} - `}
+                          {`${p(product.price)}`}
                           <Text
                             display="inline"
                             color="gray.500"
