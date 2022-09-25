@@ -98,19 +98,19 @@ const Overview: React.FC<Props> = ({
               </Flex>)
           || (total < 1500 &&
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
-                <Text textAlign="center" m="auto">¡Felicitaciones ya tienes 2% de Dcto. 🤝!<br/>2do Tip: Invierte {formatPrice(1500 - total)} más y obtén 3% Dcto.</Text>
+                <Text textAlign="center" m="auto">2do Tip: Invierte {formatPrice(1500 - total)} más y obtén 3% Dcto. 🤝</Text>
               </Flex>)
           || (total < 3200 &&
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
-                <Text textAlign="center" m="auto">¡Genial ya tienes 3% de Dcto. 💪!<br/>3er Tip: Invierte {formatPrice(3200 - total)} más y obtén 4% Dcto.</Text>
+                <Text textAlign="center" m="auto">3er Tip: Invierte {formatPrice(3200 - total)} más y obtén 4% Dcto. 💪</Text>
               </Flex>)
           || (total < 6000 &&
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
-                <Text textAlign="center" m="auto">¡Vamos ya tienes 4% de Dcto. 🙌!<br/>4to Tip: Invierte {formatPrice(6000 - total)} más y obtén 5% Dcto.</Text>
+                <Text textAlign="center" m="auto">4to Tip: Invierte {formatPrice(6000 - total)} más y obtén 5% Dcto. 🙌</Text>
               </Flex>)
           ||
               <Flex alignItems="center" fontSize="sm" fontWeight={500} justifyContent="space-between" backgroundColor="#ff9852">
-                <Text textAlign="center" m="auto">Tienes 5% de Dcto. 🎁!<br/>¡Felicitaciones! ya tienes el mejor descuento posible</Text>
+                <Text textAlign="center" m="auto">¡Felicitaciones! ya tienes 5% de Dcto. 🎁</Text>
               </Flex>
           }
       <DrawerBody>
