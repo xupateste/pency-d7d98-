@@ -1,5 +1,5 @@
 import React from "react";
-import {IDrawer, Text, Stack, Flex, Box} from "@chakra-ui/core";
+import {IDrawer, Text, Stack, Flex, Box, SimpleGrid} from "@chakra-ui/core";
 
 import SummaryButton from "../SummaryButton";
 
@@ -222,12 +222,12 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     )}
                   </Stack>
                   {product.options?.length ? form : null}
-                  {product.type != "unavailable" && (
+                  {/*product.type != "unavailable" && (
                     <Flex alignItems="center" justifyContent="space-between">
                       <FormLabel padding={0}>{t("common.count")}</FormLabel>
                       <Stepper min={1} value={count} onChange={setCount} />
                     </Flex>
-                  )}
+                  )*/}
                   {flags.includes("note") && (
                     <FormControl
                       help={t("cartItemDrawer.comments.placeholder")}
@@ -245,18 +245,24 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
               </DrawerBody>
               <DrawerFooter>
                 {["unavailable", "available", "promotional", "variant"].includes(product.type) && (
-                  <SummaryButton
-                    isDisabled={product.type === "unavailable"}
-                    isLoading={isLoading}
-                    items={items}
-                    onClick={(event) => {
-                      event.stopPropagation();
+                  <SimpleGrid columns={1} w='100%' spacingY='20px'>
+                    <Flex alignItems="center" justifyContent="space-between" >
+                      <FormLabel padding={0}>{t("common.count")}</FormLabel>
+                      <Stepper min={1} value={count} onChange={setCount} />
+                    </Flex>
+                    <SummaryButton
+                      isDisabled={product.type === "unavailable"}
+                      isLoading={isLoading}
+                      items={items}
+                      onClick={(event) => {
+                        event.stopPropagation();
 
-                      submit();
-                    }}
-                  >
-                    ➕ {t("common.add")}
-                  </SummaryButton>
+                        submit();
+                      }}
+                    >
+                      ➕ {t("common.add")}
+                    </SummaryButton>
+                   </SimpleGrid>
                 )}
                 {product.type === "ask" && (
                   <Button
