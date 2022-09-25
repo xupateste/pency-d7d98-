@@ -195,7 +195,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                           </Text>
                         </Box>
                         <Flex>
-                          <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' fontWeight={600}>
+                          <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' mt="-9px" fontWeight={600}>
                             {`USTED GANA... ${p(product.originalPrice - product.price)}`}
                           </Box>
                         </Flex>
