@@ -177,28 +177,35 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                     </Text>
                     {product.type != "unavailable" && (
                       <Stack>
-                        <Text
-                          color="gray.500"
-                          fontSize="md"
-                          whiteSpace="pre-line"
-                        >
-                          {`Codigo: ${product.code}`}
-                        </Text>
                         <Box
-                          color="gray.500"
-                          fontSize="md"
+                          color="green.500"
+                          fontWeight={700}
+                          fontSize="2xl"
                         >
                           {`P.Unit: ${p(product.price)} - `}
                           <Text
                             display="inline"
                             color="gray.500"
-                            fontSize="md"
+                            fontSize="xl"
+                            fontWeight={500}
                             textDecoration="line-through"
+                            ml={2}
                           >
                             {`${p(product.originalPrice)}`}
                           </Text>
                         </Box>
-                        
+                        <Flex>
+                          <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' fontWeight={600}>
+                            {`USTED GANA... ${p(product.originalPrice - product.price)}`}
+                          </Box>
+                        </Flex>
+                        <Text
+                          color="gray.500"
+                          fontSize="md"
+                          whiteSpace="pre-line"
+                        >
+                          {`Ref: ${product.code}`}
+                        </Text> 
                       </Stack>
                     )}
                     {product.type === "unavailable" && (
