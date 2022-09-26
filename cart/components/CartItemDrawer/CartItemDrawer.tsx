@@ -205,7 +205,17 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                           whiteSpace="pre-line"
                         >
                           {`Ref: ${product.code}`}
-                        </Text> 
+                        </Text>
+                        <SimpleGrid marginTop={2} marginBottom={3} templateColumns='3fr 2fr' columns={2} spacing={0} borderWidth={1} borderColor='gray.300' alignItems='center' justifyContent='left'>
+                          <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderColor='gray.300'>Volumen de compra</Box>
+                          <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300'>Ahorro</Box>
+                          <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderColor='gray.300'>Invierte S/1500 (o más)</Box>
+                          <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300'>3% de descuento</Box>
+                          <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderColor='gray.300'>Invierte S/3200 (o más)</Box>
+                          <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300'>4% de descuento</Box>
+                          <Box bg='white' isTruncated padding={2}>Invierte S/6000 (o más)</Box>
+                          <Box bg='white' isTruncated padding={2} borderLeftWidth={1} borderColor='gray.300'>5% de descuento</Box>
+                        </SimpleGrid> 
                       </Stack>
                     )}
                     {product.type === "unavailable" && (
