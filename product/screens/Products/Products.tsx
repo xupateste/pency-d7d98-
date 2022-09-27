@@ -384,7 +384,7 @@ const ProductsScreen: React.FC = () => {
         >  
           <Stack w="100%" alignItems="center" spacing={1}>
             <Text fontSize="sm">{'Desde 2016, FERRISUR IMPORT SAC'}</Text>
-            <Text fontSize="sm">{'\n'}{'Hecho en Juliaca, Perú por '} Chris {' & '} Liz</Text>
+            <Text fontSize="sm">{'\n'}{'Hecho en Juliaca, Perú por '} <Link href="https://wa.me/51930240108/?text=Hola+Chris!" isExternal>Chris & Liz</Link></Text>
           </Stack>
         </Flex>
       </Content>
