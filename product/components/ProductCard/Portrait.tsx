@@ -61,7 +61,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
       >
         {(type === "unavailable") && (
                 <Flex h="100%" w="100%">
-                  <Flex bg="white" h="100%" w="100%" position="absolute">
+                  <Flex h="100%" w="100%" position="absolute">
                   </Flex>
                   <Text m="auto" fontSize="12px" fontWeight="bold" px={2} bg="black" color="white" position="relative">PRODUCTO SIN STOCK</Text>
                 </Flex>)
