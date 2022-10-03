@@ -15,7 +15,7 @@ interface Props extends Omit<FlexProps, "onClick"> {
 
 const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClick, ...props}) => {
   const p = usePrice();
-  const {image, title, price, originalPrice, type} = product;
+  const {image, title, price, originalPrice, type, isnew, priceOff, lastStock, isPreOrder} = product;
   const [min, max] = getVariantsPriceRange(product.options);
 
   function formattedImg(image) {
@@ -54,54 +54,42 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         src={image ? formattedImg(image) : "/assets/fallback.jpg"}
         width="100%"
       />
-      <Flex
-        visibility={type === "unavailable" ? "visible" : "hidden"}
-        backgroundColor= "white"
-        opacity={type === "unavailable" ? 0.5 : 0}
+      <Box
         position="absolute"
         width="100%"
-        height="100%"
-        paddingTop={20}
-        justifyContent='space-evenly'
-        flexWrap='wrap'
+        height={{base: 48, sm: 48}}
       >
-      </Flex>
-      <Flex
-        visibility={type === "unavailable" ? "visible" : "hidden"}
-        position="absolute"
-        width="100%"
-        paddingTop={20}
-        justifyContent='space-evenly'
-        flexWrap='wrap'
-      >
-        <Box
-        backgroundColor= "black"
-        color= "white"
-        display= "Flex"
-        alignItems= 'center'
-        justifyContent= 'center'
-        textAlign= 'center'
-        paddingX={2}
-        fontSize="sm"
-        fontWeight= "900"
-        >
-          AGOTADO
-        </Box>
-        <Box
-        backgroundColor= "white"
-        color= "black"
-        width= "100%"
-        display= "Flex"
-        alignItems= 'center'
-        justifyContent= 'center'
-        textAlign= 'center'
-        marginX="10%"
-        fontSize="xs"
-        fontWeight= "900"
-        >
-          STOCK PRONTO
-        </Box>
-      </Flex>
+        {(type === "unavailable") && (
+                <Flex h="100%" w="100%">
+                  <Flex bg="white" h="100%" w="100%" position="absolute">
+                  </Flex>
+                  <Text m="auto" fontSize="12px" fontWeight="bold" px={2} bg="black" color="white" position="relative">PRODUCTO SIN STOCK</Text>
+                </Flex>)
+          ||  lastStock && (
+                <>
+                  <Box fontWeight="bold" fontSize="11px" bg="#00aaf3" position="absolute" top={1} right={0} display="inline-flex" justifyContent="center">
+                    <Text fontStyle="italic" px={2} color="white">¡ÚLTIMO STOCK!</Text>
+                  </Box>
+                  <Box fontWeight="bold" fontSize="10px" bg="#00aaf3" position="absolute" bottom="0" w="100%" py={1} display="inline-flex" justifyContent="center">
+                    <Text color="white">SOLO QUEDAN</Text>
+                    <Text as="span" bg="#0073bf" px={1} ml={1} fontStyle="italic" color="white">{lastStock} PIEZAS</Text>
+                  </Box>
+                </>)
+          ||  priceOff && (
+                <Box fontWeight="bold" float="right">
+                  <Text fontStyle="italic" textAlign="right" fontSize="13px" bg="#d90000" px={1} mt={0} color="#fff200">–{(100*(priceOff-price)/priceOff) | 0 }% Dcto</Text>
+                  <Text fontStyle="italic" textAlign="right" fontSize="9px" bg="#d90000" px={1} mt="-3px" float="right" color="#fff">Antes {p(priceOff)}</Text>
+                </Box>)
+          ||  isnew && (
+                <Box fontWeight="bold" fontSize="12px" bg="#d90000" position="absolute" top={1} right={0} display="inline-flex" justifyContent="center">
+                  <Text fontStyle="italic" px={2} color="white">¡NUEVO!</Text>
+                </Box>)
+          ||  isPreOrder && (
+                <Box fontWeight="bold" fontSize="12px" bg="#ffe600" position="absolute" top={1} right={0} display="inline-flex" justifyContent="center">
+                  <Text fontStyle="italic" px={2} color="#013d81">PRE-VENTA</Text>
+                </Box>)
+        }
+      </Box>
       <Box
         display="flex"
         flex={1}

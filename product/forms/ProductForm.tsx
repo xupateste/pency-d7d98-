@@ -67,7 +67,7 @@ const ProductForm: React.FC<Props> = ({defaultValues, children, onSubmit, catego
             <FormControl
               isRequired
               error={errors.code && "Este campo es requerido"}
-              help="Ej: 104412"
+              help="Ej: 12345"
               label="Codigo"
               name="code"
             >
@@ -124,8 +124,8 @@ const ProductForm: React.FC<Props> = ({defaultValues, children, onSubmit, catego
                   isRequired
                   error={errors.price && "Este campo es requerido"}
                   flex={1}
-                  help="Precio base"
-                  label="Precio"
+                  help="Precio Principal"
+                  label="Precio Final"
                   name="price"
                 >
                   <Price
@@ -140,8 +140,8 @@ const ProductForm: React.FC<Props> = ({defaultValues, children, onSubmit, catego
                     isRequired
                     error={errors.originalPrice && "Este valor es requerido"}
                     flex={1}
-                    help="Valor sin promoción"
-                    label="Precio original"
+                    help="Precio Venta al Publico"
+                    label="Precio PVP"
                     name="originalPrice"
                   >
                     <Price
@@ -154,6 +154,62 @@ const ProductForm: React.FC<Props> = ({defaultValues, children, onSubmit, catego
                 )}
               </Stack>
             )}
+            <Divider />
+            <Stack isInline spacing={2}>
+              <FormControl
+                error={errors.priceOff && "Este campo es requerido"}
+                flex={1}
+                help="Se mostrará % Dcto."
+                label="Precio Anterior"
+                name="priceOff"
+              >
+                <Price
+                  ref={register({required: true})}
+                  name="priceOff"
+                  placeholder="200"
+                  rounded="md"
+                />
+              </FormControl>
+              <FormControl
+                error={errors.lastStock && "Este campo es requerido"}
+                flex={1}
+                help="Cantidad Restante"
+                label="Ultimo Stock"
+                name="lastStock"
+              >
+                <Input
+                  ref={register({required: true})}
+                  name="lastStock"
+                  placeholder="30"
+                  rounded="md"
+                />
+              </FormControl>
+            </Stack>
+            <Stack isInline spacing={10}>
+              <FormControl error={errors.isnew?.message} name="isnew">
+                <Controller
+                  as={SwitchInput}
+                  color="primary"
+                  control={control}
+                  defaultValue={false}
+                  display="block"
+                  label="Nuevo Ingreso"
+                  name="isnew"
+                />
+              </FormControl>
+              <FormControl error={errors.isPreOrder?.message} name="isPreOrder">
+                <Controller
+                  as={SwitchInput}
+                  color="primary"
+                  control={control}
+                  defaultValue={false}
+                  display="block"
+                  label="Pre-Venta"
+                  name="isPreOrder"
+                />
+              </FormControl>
+            </Stack>
+            <Divider />
             <FormControl
               isRequired
               error={errors.category && "Este campo es requerido"}

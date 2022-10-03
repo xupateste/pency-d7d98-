@@ -23,6 +23,14 @@ export default {
         .number()
         .transform((value) => (isNaN(value) ? undefined : value))
         .default(DEFAULT_PRODUCT.originalPrice),
+      priceOff: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .default(DEFAULT_PRODUCT.priceOff),
+      lastStock: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .default(DEFAULT_PRODUCT.lastStock),
       options: yup
         .array(
           yup.object<Variant>({
@@ -49,6 +57,8 @@ export default {
       category: yup.string().default(DEFAULT_PRODUCT.category).trim(),
       description: yup.string().default(DEFAULT_PRODUCT.description),
       featured: yup.boolean().default(DEFAULT_PRODUCT.featured),
+      isnew: yup.boolean().default(DEFAULT_PRODUCT.isnew),
+      isPreOrder: yup.boolean().default(DEFAULT_PRODUCT.isPreOrder),
       image: yup.string().default(DEFAULT_PRODUCT.image),
     }),
     update: yup.object<Partial<Product>>({
@@ -61,11 +71,15 @@ export default {
       updatedAt: yup.number().nullable().strip(true),
       price: yup.number().nullable(),
       originalPrice: yup.number().nullable(),
+      priceOff: yup.number().nullable(),
+      lastStock: yup.number().nullable(),
       type: yup
         .string()
         .oneOf(["available", "unavailable", "ask", "promotional", "variant", "hidden"])
         .nullable(),
       featured: yup.boolean().nullable(),
+      isnew: yup.boolean().nullable(),
+      isPreOrder: yup.boolean().nullable(),
       options: yup
         .array(
           yup.object<Variant>({
@@ -113,6 +127,16 @@ export default {
         .transform((value) => (isNaN(value) ? undefined : value))
         .required()
         .default(DEFAULT_PRODUCT.originalPrice),
+      priceOff: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .required()
+        .default(DEFAULT_PRODUCT.priceOff),
+      lastStock: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .required()
+        .default(DEFAULT_PRODUCT.lastStock),
       options: yup
         .array(
           yup.object<Variant>({
@@ -139,6 +163,8 @@ export default {
       category: yup.string().default(DEFAULT_PRODUCT.category).trim(),
       description: yup.string().default(DEFAULT_PRODUCT.description),
       featured: yup.boolean().default(DEFAULT_PRODUCT.featured),
+      isnew: yup.boolean().default(DEFAULT_PRODUCT.isnew),
+      isPreOrder: yup.boolean().default(DEFAULT_PRODUCT.isPreOrder),
       image: yup.string().default(DEFAULT_PRODUCT.image),
     }),
     update: yup.object<Product>({
@@ -151,6 +177,8 @@ export default {
       category: yup.string().trim().nullable(),
       description: yup.string().nullable(),
       featured: yup.boolean().nullable(),
+      isnew: yup.boolean().nullable(),
+      isPreOrder: yup.boolean().nullable(),
       id: yup.string().required(),
       code: yup.string().nullable(),
       image: yup.string().nullable(),
@@ -179,6 +207,8 @@ export default {
         .nullable(),
       price: yup.number().nullable(),
       originalPrice: yup.number().nullable(),
+      priceOff: yup.number().nullable(),
+      lastStock: yup.number().nullable(),
       title: yup.string().nullable(),
     }),
     create: yup.object<Product>({
@@ -199,6 +229,14 @@ export default {
         .number()
         .transform((value) => (isNaN(value) ? undefined : value))
         .default(DEFAULT_PRODUCT.originalPrice),
+      priceOff: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .default(DEFAULT_PRODUCT.priceOff),
+      lastStock: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .default(DEFAULT_PRODUCT.lastStock),
       options: yup
         .array(
           yup
@@ -227,6 +265,8 @@ export default {
       category: yup.string().default(DEFAULT_PRODUCT.category).trim(),
       description: yup.string().default(DEFAULT_PRODUCT.description),
       featured: yup.boolean().default(DEFAULT_PRODUCT.featured),
+      isnew: yup.boolean().default(DEFAULT_PRODUCT.isnew),
+      isPreOrder: yup.boolean().default(DEFAULT_PRODUCT.isPreOrder),
       image: yup.string().default(DEFAULT_PRODUCT.image),
     }),
   },

@@ -193,6 +193,21 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                           >
                             {`${p(product.originalPrice)}`}
                           </Text>
+                          {product.lastStock && (
+                                  <Box float="right">
+                                    <Text px={2} bg="#00aaf3" color="#fff" fontWeight="bold" fontSize="md" fontStyle="italic">¡ULTIMO STOCK!</Text>
+                                    <Text px={2} bg="#0073bf" color="#fff" fontWeight="bold" fontSize="xs" fontStyle="italic" float="right">{product.lastStock} PIEZAS</Text>
+                                  </Box>)
+                            ||  product.priceOff && (
+                                  <Box float="right">
+                                    <Text px={2} bg="#d90000" color="#fff200" fontWeight="bold" fontSize="lg" fontStyle="italic">-{(100*(product.priceOff-product.price)/product.priceOff) | 0 }% Dcto</Text>
+                                    <Text px={2} bg="#d90000" color="#fff" fontWeight="bold" fontSize="xs" fontStyle="italic" float="right">Antes {p(product.priceOff)}</Text>
+                                  </Box>)
+                            ||  product.isnew && (
+                                  <Flex float="right" px={2} bg="#d90000" color="#fff" fontWeight="bold" fontSize="lg" fontStyle="italic">¡NUEVO!</Flex>) 
+                            ||  product.isPreOrder && (
+                                  <Flex float="right" px={2} bg="#ffe600" color="#013d81" fontWeight="bold" fontSize="lg" fontStyle="italic">PRE-VENTA</Flex>)
+                          }
                         </Box>
                         <Flex>
                           <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' mt="-9px" fontWeight={600}>
@@ -219,23 +234,26 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                       </Stack>
                     )}
                     {product.type === "unavailable" && (
-                      <Text
-                        backgroundColor= "#ebf8ff"
-                        borderWidth="1px"
-                        fontSize="md"
-                        whiteSpace="pre-line"
-                        p={3}
-                      >
-                        Producto Agotado. Stock Pronto<br/>
-                        <Link
-                          isExternal
-                          fontWeight={900}
-                          href={`https://wa.me/51935687208?text=Hola Ferrisur! Cómo podría reservar el Producto: ${product.title} (${product.code})`}
-                          lineHeight="normal"
+                      <Stack>
+                        <Box w="fit-content" float="right" px={2} bg="black" color="white" fontWeight="bold" fontSize="sm" fontStyle="italic">PRODUCTO SIN STOCK</Box>
+                        <Text
+                          backgroundColor= "#ebf8ff"
+                          borderWidth="1px"
+                          fontSize="md"
+                          whiteSpace="pre-line"
+                          p={3}
                         >
-                          👉 Quiero reservar este Producto
-                        </Link>
-                      </Text>
+                          Este producto se agotó rápidamente<br/>
+                          <Link
+                            isExternal
+                            fontWeight={900}
+                            href={`https://wa.me/51935687208?text=${encodeURIComponent('Hola! Quisiera saber si traerán nuevamente el producto: '+product.title+' ('+product.code+')')}`}
+                            lineHeight="normal"
+                          >
+                            👉 Consultar Disponibilidad
+                          </Link>
+                        </Text>
+                      </Stack>
                     )}
                   </Stack>
                   {product.options?.length ? form : null}

@@ -49,12 +49,14 @@ const ProductRow: React.FC<Props> = ({onEdit, onRemove, ...product}) => {
             src={product.image || "/assets/fallback-sm.jpg"}
             width={12}
           />
-          <Text flex={1} fontWeight="500" marginLeft={2}>
-            {product.title}
-          </Text>
-          <Text flex={1} fontWeight="500" marginLeft={2}>
-            {product.code? product.code : ""} {product.featured ? "Promo" : ""}
-          </Text>
+          <Box flex={1} isTruncated>
+            <Text fontWeight="500" marginLeft={2}>{product.code? product.code : ""}</Text>
+            <Text fontWeight="500" marginLeft={2}>{product.title}</Text>
+          </Box>
+          <Box flex={1}>
+            <Text fontWeight="500" marginLeft={2}>{product.featured ? "D." : ""} {product.lastStock ? "US." : ""} {product.type==="unavailable" ? "OUT" : ""}</Text>
+            <Text fontWeight="500" marginLeft={2}>{product.priceOff ? "%" : ""} {product.isnew ? "N." : ""} {product.isPreOrder ? "PV." : ""}</Text>
+          </Box>
         </Flex>
       </Box>
       <Box as="td" display={{base: "none", md: "table-cell"}} width="220px">
