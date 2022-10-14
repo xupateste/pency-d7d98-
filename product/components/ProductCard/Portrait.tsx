@@ -63,13 +63,13 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         height="0"
       >
         {(type === "unavailable") && (
-                <Flex paddingBottom="100%" height="0" w="100%" borderWidth={2} borderColor="gray.400">
+                <Flex paddingBottom="100%" height="0" w="100%" borderColor="gray.400">
                   <Flex h="100%" w="100%" position="absolute">
                   </Flex>
                   <Text m="auto" fontSize="12px" fontWeight="bold" px={2} bg="black" color="white" position="relative">PRODUCTO SIN STOCK</Text>
                 </Flex>)
           ||  lastStock && (
-                <Flex paddingBottom="100%" height="0" w="100%" borderWidth={2} borderColor="#00aaf3">
+                <Flex paddingBottom="100%" height="0" w="100%" borderColor="#00aaf3">
                   <Box fontWeight="bold" fontSize="11px" bg="#00aaf3" position="absolute" top={0} right={0} display="inline-flex" justifyContent="center">
                     <Text fontStyle="italic" px={2} color="white">¡ÚLTIMO STOCK!</Text>
                   </Box>
@@ -79,20 +79,20 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
                   </Box>
                 </Flex>)
           ||  priceOff && (
-                <Flex paddingBottom="100%" height="0" w="100%" borderWidth={2} borderColor="#d90000" justifyContent="flex-end">
+                <Flex paddingBottom="100%" height="0" w="100%" borderColor="#d90000" justifyContent="flex-end">
                   <Box fontWeight="bold" float="right">
                     <Text fontStyle="italic" textAlign="right" fontSize="13px" bg="#d90000" px={1} mt={0} color="#fff200">–{(100*(priceOff-price)/priceOff) | 0 }% Dcto</Text>
                     <Text fontStyle="italic" textAlign="right" fontSize="9px" bg="#d90000" px={1} mt="-3px" float="right" color="#fff">Antes {p(priceOff)}</Text>
                   </Box>
                 </Flex>)
           ||  isnew && (
-                <Flex paddingBottom="100%" height="0" w="100%" borderWidth={2} borderColor="#d90000">
+                <Flex paddingBottom="100%" height="0" w="100%" borderColor="#d90000">
                   <Box fontWeight="bold" fontSize="12px" bg="#d90000" position="absolute" top={0} right={0} display="inline-flex" justifyContent="center">
                     <Text fontStyle="italic" px={2} color="white">¡NUEVO!</Text>
                   </Box>
                 </Flex>)
           ||  isPreOrder && (
-              <Flex paddingBottom="100%" height="0" w="100%" borderWidth={2} borderColor="#ffe600">
+              <Flex paddingBottom="100%" height="0" w="100%" borderColor="#ffe600">
                 <Box fontWeight="bold" fontSize="12px" bg="#ffe600" position="absolute" top={0} right={0} display="inline-flex" justifyContent="center">
                   <Text fontStyle="italic" px={2} color="#013d81">PRE-VENTA</Text>
                 </Box>
