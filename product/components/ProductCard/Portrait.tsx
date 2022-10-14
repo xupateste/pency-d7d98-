@@ -59,7 +59,8 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
       <Box
         position="absolute"
         width="100%"
-        height={{base: 48, sm: 48}}
+        paddingBottom="100%"
+        height="0"
       >
         {(type === "unavailable") && (
                 <Flex h="100%" w="100%" borderWidth={2} borderColor="gray.400">
