@@ -221,7 +221,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                         >
                           {`Ref: ${product.code}`}
                         </Text>
-                        <Grid marginTop={2} marginBottom={3} templateColumns='3fr 2fr' borderWidth={1} borderColor='gray.300'>
+                        <Grid marginTop={2} marginBottom={4} templateColumns='3fr 2fr' borderWidth={1} borderColor='gray.300'>
                           <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderColor='gray.300'>Volumen de compra</Box>
                           <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300'>Ahorro</Box>
                           <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderColor='gray.300'>Invierte S/500 (o más)</Box>
