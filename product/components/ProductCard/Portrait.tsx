@@ -106,7 +106,7 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
         height="100%"
         justifyContent="space-between"
         padding={isRaised ? {base: 2, sm: 4} : 0}
-        paddingTop={2}
+        paddingTop={1}
         width="100%"
       >
         <Text
