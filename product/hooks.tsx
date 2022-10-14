@@ -237,7 +237,7 @@ export function useFilteredProductsOriginal(selector?: (product: Product) => boo
           ))}
         </Select>
         <Divider height={4} orientation="vertical" />
-        <InputGroup alignItems="center" flex={{base: 1, sm: "inherit"}} height={10}>
+        <InputGroup alignItems="center" flex={{base: 1, sm: "inherit"}} height={10} w="100%">
           <InputLeftElement
             children={<Icon color="gray.300" name="search" />}
             color="gray.300"
