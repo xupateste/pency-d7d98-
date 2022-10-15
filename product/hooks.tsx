@@ -1,5 +1,5 @@
 import React from "react";
-import {Icon, Flex, InputGroup, InputLeftElement, Divider} from "@chakra-ui/core";
+import {Icon, Text, Flex, InputGroup, InputLeftElement, Divider} from "@chakra-ui/core";
 
 import ProductContext from "./context";
 import {Product} from "./types";
@@ -65,45 +65,51 @@ export function useFilteredProducts(selector?: (product: Product) => boolean) {
   return {
     products: productsBySearch,
     filters: (
-      <Flex alignItems="center">
-        <Select
-          flex={{base: 1, sm: "inherit"}}
-          fontWeight="500"
-          height="100%"
-          maxWidth={{base: "100%", sm: "140px"}}
-          paddingLeft={0}
-          placeholder={t("common.categories")}
-          value=""
-          variant="unstyled"
-          width="auto"
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            handleCategoryChange(e.target.value)
-          }
-        >
-          {categories.map(([category, count]) => (
-            <option key={category} value={category}>
-              {category} ({count})
-            </option>
-          ))}
-        </Select>
-        <Divider height={4} orientation="vertical" />
-        <InputGroup alignItems="center" flex={{base: 1, sm: "inherit"}} height={10} w="100%">
-          <InputLeftElement
-            children={<Icon color="gray.300" name="search" />}
-            color="gray.300"
-            fontSize="1.2em"
-            top="inherit"
-          />
-          <Input
-            fontSize="md"
-            paddingLeft={10}
-            placeholder={t("filters.search")}
-            value={query}
+      <>
+        <Flex alignItems="center">
+          <Select
+            flex={{base: 1, sm: "inherit"}}
+            fontWeight="500"
+            height="100%"
+            maxWidth={{base: "100%", sm: "140px"}}
+            paddingLeft={0}
+            placeholder={t("common.categories")}
+            value=""
             variant="unstyled"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-          />
-        </InputGroup>
-      </Flex>
+            width="auto"
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              handleCategoryChange(e.target.value)
+            }
+          >
+            {categories.map(([category, count]) => (
+              <option key={category} value={category}>
+                {category} ({count})
+              </option>
+            ))}
+          </Select>
+          <Divider height={4} orientation="vertical" />
+          <InputGroup alignItems="center" flex={{base: 1, sm: "inherit"}} height={10} w="100%">
+            <InputLeftElement
+              children={<Icon color="gray.300" name="search" />}
+              color="gray.300"
+              fontSize="1.2em"
+              top="inherit"
+            />
+            <Input
+              fontSize="md"
+              paddingLeft={10}
+              placeholder={t("filters.search")}
+              value={query}
+              variant="unstyled"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+            />
+          </InputGroup>
+        </Flex>
+        {query && (
+            <Text fontWeight="900" fontStyle="italic" textAlign="center">Mostrando Resultados para "{query}"</Text>
+          )
+        }
+      </>
     ),
   };
 }
