@@ -10,20 +10,20 @@ interface Props extends StackProps {
 }
 
 const ProductsGrid: React.FC<Props> = ({children, title, layout, products, ...props}) => (
-  <Stack spacing={{base: 4, sm: 5}} {...props}>
+  <Stack pb={5} spacing={{base: 4, sm: 5}} {...props} borderBottom="2px solid #edebeb">
     {title && (
       <Stack
           isInline
           alignItems="center"
           fontSize="lg"
-          fontWeight={500}
+          fontWeight={900}
           spacing={2}
         >
         <Text
           as="h2"
           data-test-id="title"
           fontSize={{base: "xl", sm: "2xl"}}
-          fontWeight={500}
+          fontWeight={900}
           textTransform="capitalize"  
         >
           {title}

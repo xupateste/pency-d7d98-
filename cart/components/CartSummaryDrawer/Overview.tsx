@@ -1,5 +1,5 @@
 import React from "react";
-import {Stack, Flex, Text, useDisclosure, 
+import {Stack, Flex, Text, useDisclosure, Grid, Box, 
   AlertDialog,
   AlertDialogBody,
   AlertDialogFooter,
@@ -167,6 +167,20 @@ const Overview: React.FC<Props> = ({
                 </Flex>
               </Flex>
             ))}
+          </Stack>
+          <Stack borderTopWidth={2} borderColor='gray.200'>
+            <Grid marginTop={10} marginBottom={4} templateColumns='3fr 2fr' borderWidth={1} borderColor='gray.300'>
+              <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderColor='gray.300'>Volumen de compra</Box>
+              <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300'>Ahorro</Box>
+              <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderColor='gray.300'>Invierte S/500 (o más)</Box>
+              <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300' color='#fd0000'>2% de descuento</Box>
+              <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderColor='gray.300'>Invierte S/1500 (o más)</Box>
+              <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300' color='#fd0000'>3% de descuento</Box>
+              <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderColor='gray.300'>Invierte S/3200 (o más)</Box>
+              <Box bg='white' isTruncated padding={2} borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300' color='#fd0000'>4% de descuento</Box>
+              <Box bg='white' isTruncated padding={2}>Invierte S/6000 (o más)</Box>
+              <Box bg='white' isTruncated padding={2} borderLeftWidth={1} borderColor='gray.300' color='#fd0000'>5% de descuento</Box>
+            </Grid>
           </Stack>
         </Stack>
       </DrawerBody>

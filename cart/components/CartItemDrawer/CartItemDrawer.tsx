@@ -56,7 +56,7 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
       navigator
         .share({
           title: product.title,
-          text: product.description,
+          text: "",//product.description,
           url: window.location.href,
         })
         .then(() => {
