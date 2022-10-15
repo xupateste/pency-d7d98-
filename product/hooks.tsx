@@ -106,7 +106,7 @@ export function useFilteredProducts(selector?: (product: Product) => boolean) {
           </InputGroup>
         </Flex>
         {query && (
-            <Text fontWeight="900" fontStyle="italic" textAlign="center">Mostrando Resultados para "{query}"</Text>
+            <Text fontWeight="900" fontStyle="italic" textAlign="center">Resultados de la busqueda: "{query}"</Text>
           )
         }
       </>
