@@ -136,21 +136,38 @@ const ProductForm: React.FC<Props> = ({defaultValues, children, onSubmit, catego
                   />
                 </FormControl>
                 {values.type === "promotional" && (
-                  <FormControl
-                    isRequired
-                    error={errors.originalPrice && "Este valor es requerido"}
-                    flex={1}
-                    help="Precio Venta al Publico"
-                    label="Precio PVP"
-                    name="originalPrice"
-                  >
-                    <Price
-                      ref={register({required: true})}
+                  <>
+                    <FormControl
+                      isRequired
+                      error={errors.numPiezas && "Este valor es requerido"}
+                      flex={1}
+                      help="Presentacion"
+                      label="#Piezas"
+                      name="numPiezas"
+                    >
+                      <Price
+                        ref={register({required: true})}
+                        name="numPiezas"
+                        placeholder="150"
+                        rounded="md"
+                      />
+                    </FormControl>
+                    <FormControl
+                      isRequired
+                      error={errors.originalPrice && "Este valor es requerido"}
+                      flex={1}
+                      help="Precio Venta al Publico"
+                      label="Precio PVP"
                       name="originalPrice"
-                      placeholder="150"
-                      rounded="md"
-                    />
-                  </FormControl>
+                    >
+                      <Price
+                        ref={register({required: true})}
+                        name="originalPrice"
+                        placeholder="150"
+                        rounded="md"
+                      />
+                    </FormControl>
+                  </>
                 )}
               </Stack>
             )}

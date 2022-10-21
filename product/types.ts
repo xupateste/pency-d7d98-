@@ -9,6 +9,7 @@ export interface Product {
   image?: string | undefined;
   price: number;
   originalPrice?: number;
+  numPiezas?: number;
   priceOff?: number;
   lastStock?: number;
   type: "available" | "unavailable" | "variant" | "hidden" | "promotional" | "ask";

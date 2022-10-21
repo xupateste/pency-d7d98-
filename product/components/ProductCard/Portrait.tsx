@@ -15,7 +15,7 @@ interface Props extends Omit<FlexProps, "onClick"> {
 
 const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClick, ...props}) => {
   const p = usePrice();
-  const {image, title, price, originalPrice, type, isnew, priceOff, lastStock, isPreOrder} = product;
+  const {image, title, price, originalPrice, type, isnew, priceOff, lastStock, isPreOrder, numPiezas} = product;
   const [min, max] = getVariantsPriceRange(product.options);
 
   function formattedImg(image) {
@@ -132,11 +132,20 @@ const PortraitProductCard: React.FC<Props> = ({isRaised = false, product, onClic
             <Text color="green.500" fontSize="lg" fontWeight={600} lineHeight={1}>
               {p(price)}
             </Text>
-            {originalPrice && (
+            {numPiezas > 1 && (
+              <Box display="inline-block" verticalAlign="sub" ml={1}>
+                <Text display="block" color="gray.500" fontSize={10} lineHeight={1} mt="-8px">
+                  {"CADA PIEZA"}
+                </Text>
+                <Text color="gray.500" fontSize="md" lineHeight={1} textDecoration="line-through">
+                  {p(originalPrice)}
+                </Text>
+              </Box>)
+            ||
               <Text color="gray.500" fontSize="md" lineHeight={1} textDecoration="line-through">
                 {p(originalPrice)}
               </Text>
-            )}
+            }
           </Stack>
         )}
         {/*type === "unavailable" && (

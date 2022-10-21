@@ -183,16 +183,32 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                           fontSize="2xl"
                         >
                           {`${p(product.price)}`}
-                          <Text
-                            display="inline"
-                            color="gray.500"
-                            fontSize="xl"
-                            fontWeight={500}
-                            textDecoration="line-through"
-                            ml={2}
-                          >
-                            {`${p(product.originalPrice)}`}
-                          </Text>
+                          {(product.numPiezas > 1 && 
+                              <Box display="inline-block" verticalAlign="sub" ml={2}>
+                                <Text display="block" color="gray.500" fontSize="xs" lineHeight={0} fontWeight={500}>{product.numPiezas > 1 ? "CADA PIEZA" : ""}</Text>
+                                <Text
+                                  display="block"
+                                  color="gray.500"
+                                  fontSize="lg"
+                                  fontWeight={500}
+                                  textDecoration="line-through"
+                                >
+                                  {`${p(product.originalPrice)}`}
+                                </Text>
+                              </Box>)
+                            ||
+                              <Text
+                                display="inline"
+                                color="gray.500"
+                                fontSize="xl"
+                                fontWeight={500}
+                                ml={2}
+                                textDecoration="line-through"
+                              >
+                                {`${p(product.originalPrice)}`}
+                              </Text>
+                          }
+                          
                           {product.lastStock && (
                                   <Box float="right">
                                     <Text px={2} bg="#00aaf3" color="#fff" fontWeight="bold" fontSize="md" fontStyle="italic">¡ULTIMO STOCK!</Text>
@@ -210,9 +226,16 @@ const CartItemDrawer: React.FC<Props> = ({onClose, product, onSubmit, ...props})
                           }
                         </Box>
                         <Flex>
-                          <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' mt="-9px" fontWeight={600}>
-                            {`USTED GANA... ${p(product.originalPrice - product.price)}`}
-                          </Box>
+                          {(product.numPiezas > 1 && 
+                              <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' mt="-9px" fontWeight={600}>
+                                {`USTED GANA... ${p(product.originalPrice - (product.price / product.numPiezas))} Por Pieza`}
+                              </Box>)
+                            || 
+                              <Box borderWidth='2px' borderRadius='sm' borderColor='black' px={4} py='1px' mt="-9px" fontWeight={600}>
+                                {`USTED GANA... ${p(product.originalPrice - product.price)}`}
+                              </Box>
+                          }
+                          
                         </Flex>
                         <Text
                           color="gray.500"

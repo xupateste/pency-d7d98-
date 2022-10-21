@@ -31,6 +31,10 @@ export default {
         .number()
         .transform((value) => (isNaN(value) ? undefined : value))
         .default(DEFAULT_PRODUCT.lastStock),
+      numPiezas: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .default(DEFAULT_PRODUCT.numPiezas),
       options: yup
         .array(
           yup.object<Variant>({
@@ -73,6 +77,7 @@ export default {
       originalPrice: yup.number().nullable(),
       priceOff: yup.number().nullable(),
       lastStock: yup.number().nullable(),
+      numPiezas: yup.number().nullable(),
       type: yup
         .string()
         .oneOf(["available", "unavailable", "ask", "promotional", "variant", "hidden"])
@@ -137,6 +142,11 @@ export default {
         .transform((value) => (isNaN(value) ? undefined : value))
         .required()
         .default(DEFAULT_PRODUCT.lastStock),
+      numPiezas: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .required()
+        .default(DEFAULT_PRODUCT.numPiezas),
       options: yup
         .array(
           yup.object<Variant>({
@@ -209,6 +219,7 @@ export default {
       originalPrice: yup.number().nullable(),
       priceOff: yup.number().nullable(),
       lastStock: yup.number().nullable(),
+      numPiezas: yup.number().nullable(),
       title: yup.string().nullable(),
     }),
     create: yup.object<Product>({
@@ -237,6 +248,10 @@ export default {
         .number()
         .transform((value) => (isNaN(value) ? undefined : value))
         .default(DEFAULT_PRODUCT.lastStock),
+      numPiezas: yup
+        .number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .default(DEFAULT_PRODUCT.numPiezas),
       options: yup
         .array(
           yup

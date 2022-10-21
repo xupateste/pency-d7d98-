@@ -15,6 +15,7 @@ export default {
       originalPrice: Number(faker.commerce.price()),
       priceOff: Number(faker.commerce.price()),
       lastStock: faker.random.number(99),
+      numPiezas: faker.random.number(999),
       createdAt: faker.random.number(999999999),
       updatedAt: faker.random.number(999999999),
       type: "available",

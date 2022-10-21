@@ -31,6 +31,12 @@ const ProductRow: React.FC<Props> = ({onEdit, onRemove, ...product}) => {
     });
   }
 
+  function formattedImg(image) {
+    const position = image.indexOf('/upload/') + 8;
+    const format = "w_120,f_auto,q_auto/";
+    return [image.slice(0,position),format,image.slice(position)].join('');
+  }
+
   return (
     <Box
       as="tr"
@@ -46,7 +52,8 @@ const ProductRow: React.FC<Props> = ({onEdit, onRemove, ...product}) => {
             borderWidth={1}
             height={12}
             rounded="lg"
-            src={product.image || "/assets/fallback-sm.jpg"}
+            src={product.image ? formattedImg(product.image) : "/assets/fallback-sm.jpg"}
+
             width={12}
           />
           <Box flex={1} isTruncated>

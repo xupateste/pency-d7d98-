@@ -12,6 +12,7 @@ export const DEFAULT_PRODUCT: Omit<Product, "id"> = {
   price: 0,
   priceOff: 0,
   lastStock: 0,
+  numPiezas: 1,
   type: "available",
   featured: false,
   isnew: false,
