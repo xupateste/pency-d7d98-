@@ -168,7 +168,7 @@ const Overview: React.FC<Props> = ({
               </Flex>
             ))}
           </Stack>
-          <Stack borderTopWidth={2} borderColor='gray.200'>
+          <Stack display="none" borderTopWidth={2} borderColor='gray.200'>
             <Grid marginTop={10} marginBottom={4} templateColumns='3fr 2fr' borderWidth={1} borderColor='gray.300'>
               <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderColor='gray.300'>Volumen de compra</Box>
               <Box bg='gray.100' isTruncated padding={2} fontWeight='bold' borderBottomWidth={1} borderLeftWidth={1} borderColor='gray.300'>Ahorro</Box>
