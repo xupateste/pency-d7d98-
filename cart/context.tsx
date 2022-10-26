@@ -14,7 +14,7 @@ import {useTenant} from "~/tenant/hooks";
 import {Field} from "~/tenant/types";
 import {isMercadoPagoSelected} from "~/tenant/selectors";
 
-//import apiClient from "~/product/api/client"; //added
+import apiClient from "~/product/api/client"; //added
 
 import {useProducts} from "~/product/hooks";
 
@@ -29,7 +29,7 @@ const CartContext = React.createContext({} as Context);
 const CartProvider = ({children}: Props) => {
   const log = useAnalytics();
   const {phone, slug, mercadopago, hook} = useTenant();
-  //const tenant = useTenant();
+  const tenant = useTenant();
   const [cart, setCart] = React.useState<Cart>({});
   const items = React.useMemo(() => [].concat(...Object.values(cart)), [cart]);
 
@@ -163,11 +163,10 @@ const CartProvider = ({children}: Props) => {
       api.hook(hook, {phone, items, orderId, fields});
     }
     
-    /*apiClient
+    apiClient
       .hookorder(tenant.id, {orderId: orderId, items: items, fields: fields, phone: phone})
       .then()
       .catch(err => {console.log(err)})
-    */
     // added
     
     
