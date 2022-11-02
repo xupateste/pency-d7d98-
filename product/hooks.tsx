@@ -19,6 +19,14 @@ export function useProducts() {
   return products;
 }
 
+export function useOrders() {
+  const {
+    state: {orders},
+  } = React.useContext(ProductContext);
+
+  return orders;
+}
+
 export function useProductActions() {
   const {
     actions: {create, update, remove, upsert},

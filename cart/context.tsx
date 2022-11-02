@@ -15,6 +15,7 @@ import {Field} from "~/tenant/types";
 import {isMercadoPagoSelected} from "~/tenant/selectors";
 
 import apiClient from "~/product/api/client"; //added
+import {getMessage} from "./selectors"; //added
 
 import {useProducts} from "~/product/hooks";
 
@@ -164,7 +165,7 @@ const CartProvider = ({children}: Props) => {
     }
     
     apiClient
-      .hookorder(tenant.id, {orderId: orderId, items: items, fields: fields, phone: phone})
+      .hookorder(tenant.id, {orderId: orderId, items: items, fields: fields, phone: phone, message: encodeURIComponent(getMessage(items, orderId, fields, ""))})
       .then()
       .catch(err => {console.log(err)})
     // added

@@ -16,6 +16,15 @@ export default {
       .then((snapshot) => snapshot.docs.map((doc) => ({...(doc.data() as Product), id: doc.id})))
       .then((products) => products.map((product) => schemas.client.fetch.cast(product)));
   },
+  orders: async (tenant: ClientTenant["id"]) => {
+    return database
+      .collection("tenants")
+      .doc(tenant)
+      .collection("orders")
+      .get()
+      .then((snapshot) => snapshot.docs.map(doc => ({...(doc.data()), id: doc.id})))
+      .then((orders) => orders.map((order) => order));
+  },
   create: (tenant: ClientTenant["id"], product: Product) => {
     const casted = schemas.server.create.cast(product);
 

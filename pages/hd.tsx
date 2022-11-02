@@ -19,10 +19,11 @@ import productSchemas from "~/product/schemas";
 interface Props {
   tenant: ClientTenant;
   products: Product[];
+  orders: any[];
   category: string | string[];
 }
 
-const SlugRoute: React.FC<Props> = ({tenant, products}) => {
+const SlugRoute: React.FC<Props> = ({tenant, products, orders}) => {
   // Get router instance
   const router = useRouter();
 
@@ -38,7 +39,7 @@ const SlugRoute: React.FC<Props> = ({tenant, products}) => {
   return (
     <TenantProvider initialValue={tenant}>
       {(tenant) => (
-        <ProductProvider initialValues={products}>
+        <ProductProvider initialValues={products} initialOrders={orders}>
           <AnalyticsProvider>
             <CartProvider>
               <StoreLayout product={product} category={category} tenant={tenant}>
@@ -70,9 +71,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
         products.map((product) => productSchemas.client.fetch.cast(product, {stripUnknown: true})),
       );
 
+    // Get its orders //ADDED
+    const orders = await productApi
+      .orders(tenant.id)
+      .then((orders) => orders.map((order) => order));
+    //console.log(orders)
+
     // Return props
     return {
-      props: {tenant, products},
+      props: {tenant, products, orders},
     };
   } catch (err) {
     return {

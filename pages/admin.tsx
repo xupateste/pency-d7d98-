@@ -19,17 +19,18 @@ import productSchemas from "~/product/schemas";
 interface Props {
   tenant: ClientTenant;
   products: Product[];
+  orders: any[];
 }
 
 interface Params extends ParsedUrlQuery {
   slug: ClientTenant["slug"];
 }
 
-const AdminRoute: React.FC<Props> = ({tenant, products}) => {
+const AdminRoute: React.FC<Props> = ({tenant, products, orders}) => {
   return (
     <TenantProvider initialValue={tenant}>
       {(tenant) => (
-        <ProductProvider initialValues={products}>
+        <ProductProvider initialValues={products} initialOrders={orders}>
           <AdminLayout>
             <I18nProvider country={tenant.country}>
               <SessionProvider>
@@ -55,12 +56,18 @@ export const getServerSideProps: GetServerSideProps<any, Params> = async functio
     const products: Product[] = await productApi
       .list(tenant.id)
       // Cast all products for client
-      .then((products) =>
+      .then((products) => 
         products.map((product) => productSchemas.client.fetch.cast(product, {stripUnknown: true})),
       );
 
+    // Get its orders //ADDED
+    const orders = await productApi
+      .orders(tenant.id)
+      .then((orders) => orders.map((order) => order));
+    //console.log(orders)
+
     // Return props
-    return {props: {tenant, products}};
+    return {props: {tenant, products, orders}};
   } catch (err) {
     // If something failed report it to _app.tsx
     return {props: {statusCode: err?.status || res?.statusCode || 404}};

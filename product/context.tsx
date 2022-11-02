@@ -11,6 +11,7 @@ import {sortBy} from "~/selectors/sort";
 export interface Context {
   state: {
     products: Product[];
+    orders: any[];
   };
   actions: {
     create: (product: Product) => Promise<void>;
@@ -21,16 +22,18 @@ export interface Context {
 }
 interface Props {
   initialValues: Product[];
+  initialOrders: any[];
 }
 
 const ProductContext = React.createContext({} as Context);
 
-const ProductProvider: React.FC<Props> = ({initialValues, children}) => {
+const ProductProvider: React.FC<Props> = ({initialValues, initialOrders, children}) => {
   const tenant = useTenant();
   const toast = useToast();
   const [products, setProducts] = React.useState<Product[]>(
     sortBy(initialValues, (item) => item?.title),
   );
+  const orders =  sortBy(initialOrders, (item) => item?.orderId)
 
   async function create(product: Product) {
     const casted = schemas.client.create.cast(product);
@@ -139,7 +142,7 @@ const ProductProvider: React.FC<Props> = ({initialValues, children}) => {
       });
   }
 
-  const state: Context["state"] = {products};
+  const state: Context["state"] = {orders, products};
   const actions: Context["actions"] = {
     create,
     update,

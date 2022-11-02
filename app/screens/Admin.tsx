@@ -17,9 +17,11 @@ import {
 import HomeAdminScreen from "./Home";
 
 import ProductsAdminScreen from "~/product/screens/Admin/Admin";
+import OrdersAdminScreen from "~/product/screens/Orders/Orders";
 import TenantAdminScreen from "~/tenant/screens/Admin";
 import BoxIcon from "~/ui/icons/Box";
 import SlidersIcon from "~/ui/icons/Sliders";
+import CheckIcon from "~/ui/icons/Check";
 import HelpCircleIcon from "~/ui/icons/HelpCircle";
 import LogOutIcon from "~/ui/icons/LogOut";
 import IconButton from "~/ui/controls/IconButton";
@@ -115,6 +117,10 @@ const AdminScreen: React.FC = () => {
                   <SlidersIcon marginRight={2} />
                   <Text>{t("common.shop")}</Text>
                 </Tab>
+                <Tab fontSize="md" fontWeight={500}>
+                  <CheckIcon marginRight={2} />
+                  <Text>{"Ordenes"}</Text>
+                </Tab>
               </TabList>
             </Box>
           </Content>
@@ -129,6 +135,9 @@ const AdminScreen: React.FC = () => {
             </TabPanel>
             <TabPanel>
               <TenantAdminScreen />
+            </TabPanel>
+            <TabPanel>
+              <OrdersAdminScreen />
             </TabPanel>
           </TabPanels>
         </Box>
