@@ -6,18 +6,21 @@ import schemas from "./schemas";
 
 import {useToast} from "~/hooks/toast";
 import {useTenant} from "~/tenant/hooks";
-import {sortBy} from "~/selectors/sort";
+import {sortBy, sortByDesc} from "~/selectors/sort";
 
 export interface Context {
   state: {
     products: Product[];
     orders: any[];
+    initialOrders: any[];
   };
   actions: {
     create: (product: Product) => Promise<void>;
     update: (product: Product) => Promise<void>;
     remove: (id: Product["id"]) => Promise<void>;
     upsert: (products: Product[]) => Promise<void>;
+    remorder: (id) => Promise<void>;
+    updateorder: (order) => Promise<void>;
   };
 }
 interface Props {
@@ -33,7 +36,17 @@ const ProductProvider: React.FC<Props> = ({initialValues, initialOrders, childre
   const [products, setProducts] = React.useState<Product[]>(
     sortBy(initialValues, (item) => item?.title),
   );
-  const orders =  sortBy(initialOrders, (item) => item?.orderId)
+  const [orders, setOrders] = React.useState<any[]>(
+    sortByDesc(initialOrders, (item) => item?.createdAt +''),
+  );
+
+
+
+  React.useEffect(() => {
+    setOrders(sortByDesc(initialOrders, (item) => item?.createdAt +''));
+  }, [initialOrders]);
+
+
 
   async function create(product: Product) {
     const casted = schemas.client.create.cast(product);
@@ -142,12 +155,61 @@ const ProductProvider: React.FC<Props> = ({initialValues, initialOrders, childre
       });
   }
 
-  const state: Context["state"] = {orders, products};
+  function remorder(id) {
+    return api
+      .remorder(tenant.id, id)
+      .then(() => {
+        setOrders((initialOrders) => initialOrders.filter((order) => order.id !== id));
+
+        toast({
+          title: "Orden eliminada",
+          description: "La Orden fue eliminada correctamente",
+          status: "success",
+        });
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description:
+            "Hubo un error borrando la orden, refrescá la página e intentá nuevamente",
+          status: "error",
+        });
+      });
+  }
+
+  function updateorder(order) {
+    return api
+      .updateorder(tenant.id, order)
+      .then(() => {
+        setOrders((orders) => 
+          orders.map((_order) =>
+            _order.id === order.id ? {..._order, ...order} : _order,
+          ),
+        );
+        toast({
+          title: "Orden actualizada",
+          description: "La Orden fue actualizada correctamente",
+          status: "success",
+        });
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description:
+            "Hubo un error actualizando la orden, refrescá la página e intentá nuevamente",
+          status: "error",
+        });
+      });
+  }
+
+  const state: Context["state"] = {orders, products, initialOrders};
   const actions: Context["actions"] = {
     create,
     update,
     remove,
+    remorder,
     upsert,
+    updateorder,
   };
 
   return <ProductContext.Provider value={{state, actions}}>{children}</ProductContext.Provider>;

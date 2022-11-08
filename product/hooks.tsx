@@ -29,10 +29,10 @@ export function useOrders() {
 
 export function useProductActions() {
   const {
-    actions: {create, update, remove, upsert},
+    actions: {create, update, remove, remorder, upsert, updateorder},
   } = React.useContext(ProductContext);
 
-  return {create, update, remove, upsert};
+  return {create, update, remove, remorder, upsert, updateorder};
 }
 
 export function useProductCategories() {

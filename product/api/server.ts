@@ -3,7 +3,7 @@ import shortid from "shortid";
 import {Product} from "../types";
 import schemas from "../schemas";
 
-import {database} from "~/firebase/admin";
+import {database, firestore} from "~/firebase/admin";
 import {ClientTenant} from "~/tenant/types";
 
 export default {
@@ -47,6 +47,14 @@ export default {
       .doc(product)
       .delete()
       .then(() => product),
+  remorder: (tenant: ClientTenant["id"], order) =>
+    database
+      .collection("tenants")
+      .doc(tenant)
+      .collection("orders")
+      .doc(order)
+      .delete()
+      .then(() => order),
   update: (tenant: ClientTenant["id"], {id, ...product}: Product) => {
     const casted = schemas.server.update.cast(product);
 
@@ -57,6 +65,15 @@ export default {
       .doc(id)
       .update(casted)
       .then(() => casted);
+  },
+  updateorder: (tenant: ClientTenant["id"], order) => {
+    return database
+      .collection("tenants")
+      .doc(tenant)
+      .collection("orders")
+      .doc(order.id)
+      .update(order)
+      .then(() => order);
   },
   upsert: (tenant: ClientTenant["id"], products: Product[]) => {
     const batch = database.batch();
@@ -89,6 +106,10 @@ export default {
 
   hookorder: (tenant: ClientTenant["id"], order) => {
     //const casted = schemas.server.create.cast(product);
+    // let now = ;
+    // let dateMinusHours = firestore.Timestamp.fromMillis(now.toMillis() - (3600000*5));
+    order['createdAt'] = firestore.Timestamp.now().seconds;
+    order['checked'] = false;
 
     return database
       .collection("tenants")

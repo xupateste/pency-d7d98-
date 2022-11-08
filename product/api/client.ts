@@ -17,11 +17,24 @@ export default {
     fetch("DELETE", `/api/tenant/${tenant}/product?product=${product}`, null, {
       Authorization: window.localStorage.getItem("token"),
     }),
+  remorder: (tenant: ClientTenant["slug"], order) =>
+    fetch("DELETE", `/api/tenant/${tenant}/order?order=${order}`, null, {
+      Authorization: window.localStorage.getItem("token"),
+    }),
   update: (tenant: ClientTenant["slug"], product: Partial<Product>) =>
     fetch(
       "PATCH",
       `/api/tenant/${tenant}/product`,
       {product},
+      {
+        Authorization: window.localStorage.getItem("token"),
+      },
+    ),
+  updateorder: (tenant: ClientTenant["slug"], order) =>
+    fetch(
+      "PATCH",
+      `/api/tenant/${tenant}/order`,
+      {order},
       {
         Authorization: window.localStorage.getItem("token"),
       },

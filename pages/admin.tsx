@@ -27,6 +27,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 const AdminRoute: React.FC<Props> = ({tenant, products, orders}) => {
+
   return (
     <TenantProvider initialValue={tenant}>
       {(tenant) => (
