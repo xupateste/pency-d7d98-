@@ -119,7 +119,7 @@ const OrdersScreen: React.FC = () => {
                           position: "absolute",
                           left: "0",
                           width: "100%",
-                          height: "5%",
+                          height: "2px",
                           marginTop: "16px",
                           bg: "#b7b7b7",
                           opacity: 0.6,
