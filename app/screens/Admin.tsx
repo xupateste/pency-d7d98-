@@ -99,12 +99,11 @@ const AdminScreen: React.FC = () => {
           backgroundColor="gray.100"
           borderBottom="1px solid"
           borderColor="gray.200"
-          height="100%"
           spacing={4}
         >
           <Content paddingX={4}>
-            <Box height="100%" width="100%">
-              <TabList border="none" height={16} overflowX="auto">
+            <Box width="100%">
+              <TabList border="none" height={16} py={1} overflowX="auto">
                 <Tab fontSize="md" fontWeight={500}>
                   <HomeIcon marginRight={2} />
                   <Text>{t("common.home")}</Text>
