@@ -33,6 +33,12 @@ module.exports = withSourceMaps({
         permanent: false,
         basePath: false
       },
+      {
+        source: '/',
+        destination: 'https://ferreteros.app/ferrisur',
+        permanent: false,
+        basePath: false
+      },
     ]
   },
 })
